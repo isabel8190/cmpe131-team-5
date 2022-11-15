@@ -1,5 +1,4 @@
 # Project Name
-- Name (@username)
-- Name (@username)
-- Name (@username)
-- Name (@username)
+- Isabel Luong (@isabel8190)
+- Bhargavi Datye (@Bhargavi-Datye)
+- Sherif Philips (@captainsphilips)
