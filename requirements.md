@@ -2,25 +2,25 @@
 
 ## Functional Requirements
 
-1. requirement
-2. requirement
-3. requirement
-4. requirement
-5. requirement
-6. requirement
-7. requirement
-8. requirement
-9. requirement
-10. requirement
-11. requirement
-12. requirement
+1. Users must be able to login into the system.
+2. Users must be able to logout from the system.
+3. Users must be able to create a new account.
+4. Users must be able to delete their account.
+5. Users must be able to view a home page (user can see messages of users they follow)
+6. Users must be able to send messages to their followers.
+7. Users must be able to see messages from their followers.
+8. Users should be able to view their profile.
+9. Users should be able to edit their profile.
+10. Users should be able to view other users’ profile.
+11. Users must be able to follow other users.
+12. Users must be able to search for other users.
 
 ## Non-functional Requirements
 
-1. non-functional
-2. non-functional
-3. non-functional
-4. non-functional
+1. The system login must be secure (entering the wrong password/username means the user is denied access).
+2. The system must be available 24/7.
+3. The system must be able to handle large amounts of data.
+4. The system must be easy to use.
 
 ## Use Cases
 
