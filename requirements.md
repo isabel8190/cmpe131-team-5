@@ -46,6 +46,7 @@ The user is following another user.
 2. View user's profile
 - **Pre-condition:** <can be a list or short description> 
 1. User is logged into their account.
+2. User is on the home page.
 
 - **Trigger:** <can be a list or short description> 
 User clicks on a username.
