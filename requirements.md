@@ -8,7 +8,7 @@
 4. Delete account
 5. View user home page (user can see messages of users they follow)
 6. Send messages to followers.
-7. View messages from their followers.
+7. View private messages from their followers.
 8. View user's profile.
 9. Edit user's profile.
 10. View other users’ profile.
@@ -24,49 +24,39 @@
 
 ## Use Cases
 
-1. Login
+1. Follow other users
 - **Pre-condition:** <can be a list or short description> 
-1. User must have an account under the input username
-2. User must input valid account details
+1. User must be signed in
+2. User must be on the home page
 
 - **Trigger:** <can be a list or short description> 
-User clicked on "Login" button
+User clicked on "Follow" button
 
 - **Primary Sequence:**
   
-  1. System prompts user to enter a username and password.
-  2. User enters a username and password.
-  3. User clicks the "Login" button.
-  4. System checks user's details.
-  5. System logs user in.
-  6. System redirects user to the homepage.
+  1. User clicks on another user's username.
+  2. System redirects user to the other user's profile picture.
+  3. User clicks the "Follow" button.
+  4. System adds the other user to list of user's follow list
+  5. System refreshes the page
 
 - **Primary Postconditions:**
-The user is logged in and is redirected to the homepage.
+The user is following another user.
 
-- **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
-  
-  1. User enters in an invalid (incorrect input or nothing) username or password.
-  2. User clicks the "Login" button
-  3. System checks user's details.
-  4. System displays error message "Username or password is incorrect"
-  5. System prompts user to enter a username and password.
-
-2. Logout
+2. View user's profile
 - **Pre-condition:** <can be a list or short description> 
-User is logged into their account.
+1. User is logged into their account.
 
 - **Trigger:** <can be a list or short description> 
-User clicks on the "Logout" button.
+User clicks on their username.
 
 - **Primary Sequence:**
   
-  1. User clicks on the "Logout" button.
-  2. System logs the user out.
-  3. System redirects user to Login page.
+  1. User clicks on their username.
+  2. System redirects user to their profile page.
 
 - **Primary Postconditions:** <can be a list or short description> 
-The user is logged out and is met with the Login page.
+The user is on their profile page.
 
 3. Use Case Name (Should match functional requirement name)
 - **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
