@@ -7,11 +7,11 @@
 3. Create a new account
 4. Delete account
 5. View user home page (user can see messages of users they follow)
-6. Send messages to followers.
+6. Send public messages to followers.
 7. View private messages from their followers.
-8. View user's profile.
+8. Send private message to followers.
 9. Edit user's profile.
-10. View other users’ profile.
+10. View user profile
 11. Follow other users.
 12. Search for other users.
 
@@ -48,15 +48,15 @@ The user is following another user.
 1. User is logged into their account.
 
 - **Trigger:** <can be a list or short description> 
-User clicks on their username.
+User clicks on a username.
 
 - **Primary Sequence:**
   
-  1. User clicks on their username.
-  2. System redirects user to their profile page.
+  1. User clicks on a username (theirs or someone else's).
+  2. System redirects user to the profile page corresponding to the username.
 
 - **Primary Postconditions:** <can be a list or short description> 
-The user is on their profile page.
+The user is on a profile page.
 
 3. Use Case Name (Should match functional requirement name)
 - **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
