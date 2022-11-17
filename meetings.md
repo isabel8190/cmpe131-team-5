@@ -12,7 +12,16 @@
 ## Meetings
 
 
-### 2022-04-15 at 13:30
+### 2022-11-15 at 10:30
+-Attendance: Isabel Luong, Bhargavi Datye, and Sherif Philips
+-Updates: Created a github repository, came up with functional and
+ non-functional requirements
+-Before next meeting:
+	-Create branches and pull requests for each team member
+	-Create 2 use cases
+
+
+### 2022-11-17 at 10:30
 <meeting template would go here>
 <only fill in template once you had the meeting>
 <see example on the last date>
