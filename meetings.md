@@ -9,7 +9,6 @@
   
 ## Meetings
 
-
 ### 2022-11-15 at 10:30
 -Attendance: Isabel Luong, Bhargavi Datye, and Sherif Philips
 -Updates: Created a github repository, came up with functional and
