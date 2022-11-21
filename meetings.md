@@ -20,6 +20,15 @@
 
 
 ### 2022-11-17 at 10:30
+-Attendance: Isabel Luong, Bhargavi Datye, and Sherif Philips
+-Updates: 
+	Isabel: Edited the functional requirements and added a use case
+	Bhargavi: Figured out how to make a branch, and how to pull from/ push to github
+	Sherif: Created a branch
+-Before next meeting: 
+	Focus on figuring out more use cases
+
+### 2022-11-17 at 10:30
 <meeting template would go here>
 <only fill in template once you had the meeting>
 <see example on the last date>
