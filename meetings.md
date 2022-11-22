@@ -1,6 +1,4 @@
 ## Instructions
-
-- Delete any instructions you see below they will be within < >
   
 - This schedule should reflect the meetings from the start of the project until the end of the semester.
 
@@ -26,17 +24,22 @@
 -Before next meeting: 
 	Focus on figuring out more use cases
 
-### 2022-11-17 at 10:30
-<meeting template would go here>
-<only fill in template once you had the meeting>
-<see example on the last date>
-<use date format YYYY-MM-DD at HH:MM>
+### 2022-11-22 at 10:30
+-Attendance: 
+- Team updates (___ min)
+  - Bhargavi Datye: 
+  - Isabel Luong:
+  - Sherif Philips: 
+-Group progress
 
-### 2022-04-22 at 10:30
-<meeting template would go here>
-<only fill in template once you had the meeting>
+### 2022-11-29 at 10:30
+-Attendance: 
+- Team updates (___ min)
+  - Bhargavi Datye: 
+  - Isabel Luong:
+  - Sherif Philips: 
+-Group progress
 
-### 2022-04-29 at 10:30
 - Who attended the meeting
 - Team updates (15min or less)
   <Each team member gives an update of what they did from the last meeting and what they plan to do next. If they are stuck, bring it up here to see if others can help.>
