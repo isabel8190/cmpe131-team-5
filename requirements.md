@@ -19,8 +19,8 @@
 
 1. The system login must be secure (entering the wrong password/username means the user is denied access).
 2. The system must be available 24/7.
-3. The system must be able to handle large amounts of data.
-4. The system must be easy to use.
+3. The system is expected to work on Mac/Windows/Linux.
+4. The system is expected to work on Google Chrome.
 
 ## Use Cases
 
