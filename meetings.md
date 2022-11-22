@@ -5,7 +5,6 @@
 - This schedule should reflect the meetings from the start of the project until the end of the semester.
 
 - Write at least 1 meeting per week until the end of the semester
-
   
 ## Meetings
 
@@ -17,6 +16,15 @@
 	-Create branches and pull requests for each team member
 	-Create 2 use cases
 
+
+### 2022-11-17 at 10:30
+-Attendance: Isabel Luong, Bhargavi Datye, and Sherif Philips
+-Updates: 
+	Isabel: Edited the functional requirements and added a use case
+	Bhargavi: Figured out how to make a branch, and how to pull from/ push to github
+	Sherif: Created a branch
+-Before next meeting: 
+	Focus on figuring out more use cases
 
 ### 2022-11-17 at 10:30
 <meeting template would go here>
