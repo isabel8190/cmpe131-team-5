@@ -62,35 +62,25 @@ The user is on a profile page.
   1. User clicks on the "My Profile" button.
   2. System redirects the user to their profile page.
 
-3. Create New account (Bhargavi)
+3. View User Home page (Bhargavi)
 - **Pre-condition:** 
-  1. User must have a valid email address
-  2. User does not have an existing account
-  3. Username or email is unique and different from existing username
+  1. User must be logged in
 
 - **Trigger:** 
-  User Clicks "Create Account" button
+  User Clicks on "home page" button
 
 - **Primary Sequence:**
   
-  1. User enters their email address and a password
-  2. User clicks “create account” button
-  3. System redirects user to their new profile.
+  1. User clicks on the "home page" button
+  2. System redirects user to their homepage.
 
 - **Primary Postconditions:**
-  User is on their new profile page
+  User is on their home page
 
 - **Alternate Sequence:** 
-  1. User clicks on “create account” button.
-  2. System says their email is invalid
-  3. User enters a correct email address
-  4. System redirects user to their homepage
-
-- **Alternate Sequence:** 
-  1. User clicks on “create account” button.
-  2. System says their username/email is taken
-  3. User enters a different username/email
-  4. System redirects user to their homepage
+  1. User clicks on profile
+  2. From profile user clicks the "Home page" button
+  3. System redirects user to their homepage.
 
 4. Send Public Messages (Bhargavi)
 - **Pre-condition:**
