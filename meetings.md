@@ -4,7 +4,7 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
   
 ## Meeting Minutes
 
-### 2022-11-15 at 10:30
+### 2022-11-15 at 10:30 - 11:45
 - Attendance: Isabel Luong, Bhargavi Datye, and Sherif Philips
 
 - Team Updates:
