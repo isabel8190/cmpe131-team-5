@@ -128,12 +128,7 @@ The user is on a profile page.
   The user can see the message 
 
 - **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
 
-- **Alternate Sequence <optional>:** 
   1. The user clicks on the message 
   2. The message is not found 
   3. The system redirects the user to an error page
@@ -158,14 +153,12 @@ The user is on a profile page.
 
 - **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
   
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
-
-- **Alternate Sequence <optional>:** 
   1. User clicks the "Search" button. 
   2. System says "No users found" 
   3. User enters the name of the user they want to search for in the text box. 
   4. User clicks the "Search" button. 
   5. System redirects the user to the profile page corresponding to the username.
+
+
+
 
