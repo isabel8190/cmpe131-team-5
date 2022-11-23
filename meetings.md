@@ -46,6 +46,7 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
 - By tonight:
   - Finish assigning each team member functional requirements
   - Finish writing use cases for 6 of the functional requirements
+  - Solve any conflict by using merge
 
 -Group progress
   Use cases are in progress and almost completed. The day and time for weekly meetings was decided. Functional and non-functional requirements were finalized.
