@@ -8,12 +8,12 @@
 4. Delete account (Bhargavi)
 5. View user home page (user can see messages of users they follow) (Bhargavi)
 6. Send public messages to followers (may include images) (Bhargavi)
-7. View private messages from their followers.
-8. Send private message to followers.
-9. Edit user's profile.
+7. View private messages from their followers.(Sherif)
+8. Send private message to followers.(Sherif)
+9. Edit user's profile.(Sherif)
 10. View a user profile. (Isabel)
 11. Follow other users. (Isabel)
-12. Search for other users.
+12. Search for other users.(Sherif)
 
 ## Non-functional Requirements
 
