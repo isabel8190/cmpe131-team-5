@@ -4,8 +4,8 @@
 
 1. Login (Isabel)
 2. Logout (Isabel)
-3. Create a new account
-4. Delete account
+3. Create a new account (Sherif)
+4. Delete account (Sherif)
 5. View user home page (user can see messages of users they follow)
 6. Send public messages to followers (may include images).
 7. View private messages from their followers.
