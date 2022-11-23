@@ -65,9 +65,11 @@ The user is on a profile page.
 3. Create New account (Bhargavi)
 - **Pre-condition:** 
   1. User must have a valid email address
+  2. User does not have an existing account
+  3. Username or email is unique and different from existing username
 
 - **Trigger:** 
-  User Cliks "Create Account" button
+  User Clicks "Create Account" button
 
 - **Primary Sequence:**
   
@@ -81,7 +83,13 @@ The user is on a profile page.
 - **Alternate Sequence:** 
   1. User clicks on “create account” button.
   2. System says their email is invalid
-  3. User enters a correct email
+  3. User enters a correct email address
+  4. System redirects user to their homepage
+
+- **Alternate Sequence:** 
+  1. User clicks on “create account” button.
+  2. System says their username/email is taken
+  3. User enters a different username/email
   4. System redirects user to their homepage
 
 4. Send Public Messages (Bhargavi)
@@ -95,7 +103,8 @@ The user is on a profile page.
 - **Primary Sequence:**
   
   1. User enters their message into a text box.
-  2. User clicks the “Post” button in order to send the message.
+  2. User enters an image if they want to include one.
+  3. User clicks the “Post” button in order to send the message.
 
 
 - **Primary Postconditions:** 
@@ -106,7 +115,6 @@ The user is on a profile page.
   2. User goes to their homepage.
   3. System redirects the user to their profile page
   4. User Enters their message and clicks “post”
-
 
 
 5. Use Case Name (Should match functional requirement name)
