@@ -4,10 +4,10 @@
 
 1. Login (Isabel)
 2. Logout (Isabel)
-3. Create a new account (Sherif)
-4. Delete account (Sherif)
-5. View user home page (user can see messages of users they follow)
-6. Send public messages to followers (may include images).
+3. Create a new account (Bhargavi)
+4. Delete account (Bhargavi)
+5. View user home page (user can see messages of users they follow) (Bhargavi)
+6. Send public messages to followers (may include images) (Bhargavi)
 7. View private messages from their followers.
 8. Send private message to followers.
 9. Edit user's profile.
@@ -62,69 +62,50 @@ The user is on a profile page.
   1. User clicks on the "My Profile" button.
   2. System redirects the user to their profile page.
 
-3. Use Case Name (Should match functional requirement name)
-- **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+3. View User Home page (Bhargavi)
+- **Pre-condition:** 
+  1. User must be logged in
 
-- **Trigger:** <can be a list or short description> Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
-
-- **Primary Sequence:**
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Et sequi incidunt 
-  3. Quis aute iure reprehenderit
-  4. ... 
-  5. ...
-  6. ...
-  7. ...
-  8. ...
-  9. ...
-  10. <Try to stick to a max of 10 steps>
-
-- **Primary Postconditions:** <can be a list or short description> 
-
-- **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
-
-- **Alternate Sequence <optional>:** <you can have more than one alternate sequence to describe multiple issues that may arise>
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
-
-4. Use Case Name (Should match functional requirement name)
-- **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
-
-- **Trigger:** <can be a list or short description> Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
+- **Trigger:** 
+  User Clicks on "home page" button
 
 - **Primary Sequence:**
   
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Et sequi incidunt 
-  3. Quis aute iure reprehenderit
-  4. ... 
-  5. ...
-  6. ...
-  7. ...
-  8. ...
-  9. ...
-  10. <Try to stick to a max of 10 steps>
+  1. User clicks on the "home page" button
+  2. System redirects user to their homepage.
 
-- **Primary Postconditions:** <can be a list or short description> 
+- **Primary Postconditions:**
+  User is on their home page
 
-- **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
+- **Alternate Sequence:** 
+  1. User clicks on profile
+  2. From profile user clicks the "Home page" button
+  3. System redirects user to their homepage.
+
+4. Send Public Messages (Bhargavi)
+- **Pre-condition:**
+  1. User is logged into their account.
+  2. User is on their homepage
+
+- **Trigger:** 
+  User clicks the "Post" button
+
+- **Primary Sequence:**
   
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
+  1. User enters their message into a text box.
+  2. User enters an image if they want to include one.
+  3. User clicks the “Post” button in order to send the message.
 
-- **Alternate Sequence <optional>:** <you can have more than one alternate sequence to describe multiple issues that may arise>
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
+
+- **Primary Postconditions:** 
+  The user’s message is posted and can be seen by others.
+
+- **Alternate Sequence:** 
+  1. User is looking at their profile
+  2. User goes to their homepage.
+  3. System redirects the user to their profile page
+  4. User Enters their message and clicks “post”
+
 
 5. Use Case Name (Should match functional requirement name)
 - **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
