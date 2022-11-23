@@ -8,12 +8,12 @@
 4. Delete account (Bhargavi)
 5. View user home page (user can see messages of users they follow) (Bhargavi)
 6. Send public messages to followers (may include images) (Bhargavi)
-7. View private messages from their followers.
-8. Send private message to followers.
-9. Edit user's profile.
+7. View private messages from their followers.(Sherif)
+8. Send private message to followers.(Sherif)
+9. Edit user's profile.(Sherif)
 10. View a user profile. (Isabel)
 11. Follow other users. (Isabel)
-12. Search for other users.
+12. Search for other users.(Sherif)
 
 ## Non-functional Requirements
 
@@ -107,25 +107,25 @@ The user is on a profile page.
   4. User Enters their message and clicks “post”
 
 
-5. Use Case Name (Should match functional requirement name)
-- **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+5. view private message (Sherif) 
+- **Pre-condition:** 
+  1. The user must be logged in 
+  2. The user must be on their home screen 
 
-- **Trigger:** <can be a list or short description> Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
+
+- **Trigger:** 
+  User clicks on a specific message
 
 - **Primary Sequence:**
   
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Et sequi incidunt 
-  3. Quis aute iure reprehenderit
-  4. ... 
-  5. ...
-  6. ...
-  7. ...
-  8. ...
-  9. ...
-  10. <Try to stick to a max of 10 steps>
+  1. The user clicks on the message they want to view 
+  2. The system redirects the user to the message page 
+  3. The message is displayed 
+  4. The user can see the message 
 
-- **Primary Postconditions:** <can be a list or short description> 
+
+- **Primary Postconditions:**
+  The user can see the message 
 
 - **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
   
@@ -133,31 +133,28 @@ The user is on a profile page.
   2. Ut enim ad minim veniam, quis nostrum e
   3. ...
 
-- **Alternate Sequence <optional>:** <you can have more than one alternate sequence to describe multiple issues that may arise>
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
+- **Alternate Sequence <optional>:** 
+  1. The user clicks on the message 
+  2. The message is not found 
+  3. The system redirects the user to an error page
 
-6. Use Case Name (Should match functional requirement name)
-- **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
 
-- **Trigger:** <can be a list or short description> Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
+6. Search for other users (Sherif) 
+- **Pre-condition:**
+  1. User is logged into their account
+
+- **Trigger:**
+  User clicks the "Search" button 
 
 - **Primary Sequence:**
   
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Et sequi incidunt 
-  3. Quis aute iure reprehenderit
-  4. ... 
-  5. ...
-  6. ...
-  7. ...
-  8. ...
-  9. ...
-  10. <Try to stick to a max of 10 steps>
+  1. User enters the name of the user they want to search for in the text box. 
+  2. User clicks the "Search" button. 
+  3. System redirects the user to the profile page corresponding to the username. 
 
-- **Primary Postconditions:** <can be a list or short description> 
+
+- **Primary Postconditions:**
+  The user is on the profile page of the searched user
 
 - **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
   
@@ -165,8 +162,10 @@ The user is on a profile page.
   2. Ut enim ad minim veniam, quis nostrum e
   3. ...
 
-- **Alternate Sequence <optional>:** <you can have more than one alternate sequence to describe multiple issues that may arise>
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
+- **Alternate Sequence <optional>:** 
+  1. User clicks the "Search" button. 
+  2. System says "No users found" 
+  3. User enters the name of the user they want to search for in the text box. 
+  4. User clicks the "Search" button. 
+  5. System redirects the user to the profile page corresponding to the username.
+
