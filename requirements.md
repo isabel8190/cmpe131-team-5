@@ -1,24 +1,22 @@
-## <remove all of the example text and notes in < > such as this one>
-
 ## Functional Requirements
 
 1. Login (Isabel)
-2. Logout (Isabel)
+2. Logout (Sherif)
 3. Create a new account (Bhargavi)
 4. Delete account (Bhargavi)
 5. View user home page (user can see messages of users they follow) (Bhargavi)
 6. Send public messages to followers (may include images) (Bhargavi)
-7. View private messages from their followers.(Sherif)
-8. Send private message to followers.(Sherif)
-9. Edit user's profile.(Sherif)
+7. Send/receive private messages (Isabel)
+8. View followers (Isabel)
+9. Edit user's profile. (Sherif)
 10. View a user profile. (Isabel)
-11. Follow other users. (Isabel)
-12. Search for other users.(Sherif)
+11. Follow other users. (Sherif)
+12. Search for other users. (Sherif)
 
 ## Non-functional Requirements
 
 1. The system login must be secure (entering the wrong password/username means the user is denied access).
-2. The system must be available 24/7.
+2. Only offered in English as a language option.
 3. The system is expected to work on Mac/Windows/Linux.
 4. The system is expected to work on Google Chrome.
 
@@ -26,10 +24,10 @@
 
 1. Follow other users (Isabel)
 - **Pre-condition:**
-1. User must be signed in.
+  1. User must be signed in.
 
 - **Trigger:**
-User clicked on "Follow" button.
+  1. User clicked on "Follow" button.
 
 - **Primary Sequence:**
   
@@ -40,14 +38,14 @@ User clicked on "Follow" button.
   5. System refreshes the page and changes the "Follow" button to "Following".
 
 - **Primary Postconditions:**
-The user is following another user and can see the followed user's content on the home page.
+  The user is following another user and can see the followed user's content on the home page.
 
 2. View user's profile (Isabel)
 - **Pre-condition:** 
-1. User is logged into their account.
+  1. User is logged into their account.
 
 - **Trigger:** 
-User clicks on a username or the "My Profile" button.
+  User clicks on a username or the "My Profile" button.
 
 - **Primary Sequence:**
   
@@ -55,7 +53,7 @@ User clicks on a username or the "My Profile" button.
   2. System redirects user to the profile page corresponding to the username.
 
 - **Primary Postconditions:** 
-The user is on a profile page.
+  The user is on a profile page.
 
 - **Alternate Sequence:** 
   
@@ -107,31 +105,31 @@ The user is on a profile page.
   4. User Enters their message and clicks “post”
 
 
-5. view private message (Sherif) 
+5. Send/receive private message (Sherif) 
 - **Pre-condition:** 
   1. The user must be logged in 
-  2. The user must be on their home screen 
+  2. The user must be on a another user's profile page
 
 
 - **Trigger:** 
-  User clicks on a specific message
+  User clicks "Send" to trigger send private message
 
 - **Primary Sequence:**
   
-  1. The user clicks on the message they want to view 
-  2. The system redirects the user to the message page 
-  3. The message is displayed 
-  4. The user can see the message 
+  1. The user clicks "Message" button
+  2. The system redirects the user to the chatting page and loads all messages between user and the user they want to message
+  3. User enters in a message and clicks "Send" button
+  4. System sends the message
 
 
 - **Primary Postconditions:**
-  The user can see the message 
+  The user can see the messages sent and have sent their desired message.
 
-- **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
+- **Alternate Sequence:** 
 
-  1. The user clicks on the message 
-  2. The message is not found 
-  3. The system redirects the user to an error page
+  1. Steps 1-2
+  2. User does not enter a message but clicks the "Send" button.
+  3. System sends nothing.
 
 
 6. Search for other users (Sherif) 
@@ -151,7 +149,7 @@ The user is on a profile page.
 - **Primary Postconditions:**
   The user is on the profile page of the searched user
 
-- **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
+- **Alternate Sequence:**
   
   1. User clicks the "Search" button. 
   2. System says "No users found" 
