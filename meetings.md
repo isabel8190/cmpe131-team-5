@@ -20,16 +20,16 @@
 -Updates: 
 	Isabel: Edited the functional requirements and added a use case
 	Bhargavi: Figured out how to make a branch, and how to pull from/ push to github
-	Sherif: Created a branch
+	Sherif: Created a branch 
 -Before next meeting: 
 	Focus on figuring out more use cases
 
 ### 2022-11-22 at 10:30
--Attendance: 
+-Attendance: Isabel Luong, Bhargavi Datye, and Sherif Philips
 - Team updates (___ min)
   - Bhargavi Datye: 
   - Isabel Luong:
-  - Sherif Philips: 
+  - Sherif Philips: added a mile stone
 -Group progress
 
 ### 2022-11-29 at 10:30
