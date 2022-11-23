@@ -30,6 +30,7 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
 - By tonight:
   - Finish assigning each team member functional requirements
   - Finish writing use cases for 6 of the functional requirements
+  - Solve any conflict by using merge
 
 ### 2022-11-29 at 10:30
 -Attendance: 
