@@ -12,7 +12,7 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
   - Create branches and pull requests for each team member
   - Create 2 use cases
 
-### 2022-11-17 at 10:30
+### 2022-11-17 at 10:30 - 11:45
 - Attendance: Isabel Luong, Bhargavi Datye, and Sherif Philips
 - Team Updates: 
   - Isabel: Edited the functional requirements and added a use case
@@ -21,7 +21,7 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
 - Before next meeting: 
   - Focus on figuring out more use cases
 
-### 2022-11-22 at 10:30
+### 2022-11-22 at 10:30 - 11:45
 -Attendance: Isabel Luong, Bhargavi Datye, and Sherif Philips
 - Team updates
   - Bhargavi Datye: Began working on 2 use cases and choosing functional requirements to focus on.
