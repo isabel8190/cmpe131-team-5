@@ -83,7 +83,7 @@ The user is on a profile page.
 - **Alternate Sequence:** 
   1. User clicks on “create account” button.
   2. System says their email is invalid
-  3. User enters a correct email
+  3. User enters a correct email address
   4. System redirects user to their homepage
 
 - **Alternate Sequence:** 
