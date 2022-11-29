@@ -1,22 +1,3 @@
-#python code
-
-#Functional Requirements
-
-
-#Login 
-#Logout 
-#Create a new account 
-#Delete account
-#View user home page (user can see messages of users they follow) 
-#Send public messages to followers (may include images)
-#Send/receive private messages
-#View followers 
-#Edit the user's profile. 
-#View a user profile.
-#Follow other users.
-#Search for other users. 
-
-
 #Python Code 
 
 #Login
@@ -33,12 +14,36 @@ def logout(username):
     else:
         return False
 
+
+
+
+
+
 #Create a new account 
-def create_account(username, password):
-    if create_user_account(username, password):
-        return True
-    else:
-        return False
+def create_account(username):
+    '''
+    Creates a new account with the given username
+    '''
+    account = {
+        'username': username
+    }
+    return account
+
+# Enter new account
+new_username = input("Please enter a username for your new account: ")
+new_account = create_account(new_username)
+print("Your new account has been created. Username: {}".format(new_account['username']))
+
+
+
+
+
+
+
+
+
+new_account = create_account("John Doe", "jdoe", "123456")
+print(new_account)
 
 #Delete Account
 def delete_account(username):
