@@ -1,4 +1,4 @@
-#python code for a social media webapp 
+#python code
 
 #Functional Requirements
 
