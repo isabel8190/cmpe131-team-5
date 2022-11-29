@@ -53,6 +53,28 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
 
 
 ### 2022-11-29 at 10:30
+-Attendance: Isabel Luong, Bhargavi Datye, and Sherif Philips
+
+- Team updates
+  - Bhargavi Datye: 
+  - Isabel Luong:
+  - Sherif Philips: Created webapp.py with code templates
+
+-Group progress
+  All members are aware of the next milestone and has found resources to start on the functional requirements.
+
+
+### 2022-12-01 at 10:30
+-Attendance: 
+
+- Team updates
+  - Bhargavi Datye: 
+  - Isabel Luong:
+  - Sherif Philips: 
+
+-Group progress
+
+### 2022-12-06 at 10:30
 -Attendance: 
 
 - Team updates
