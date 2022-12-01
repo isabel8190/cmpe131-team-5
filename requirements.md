@@ -78,7 +78,7 @@
   2. System redirects user to their homepage.
 
 - **Primary Postconditions:**
-  User is on their home page
+  User is on their home page and is able to see messages from other users.
 
 - **Alternate Sequence:** 
   1. User clicks on profile
