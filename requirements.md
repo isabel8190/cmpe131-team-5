@@ -113,20 +113,18 @@
 5. Send/receive private message (Sherif) 
 - **Pre-condition:** 
   1. The user must be logged in 
-  2. The user must be on a another user's profile page
-  3. The user must enter other the other user's correct name.
+  2. The user must be on a another user's profile page.
 
 
 - **Trigger:** 
-  The user clicks "Message" button on another user's profile page.
+  User clicks "Send" to trigger send private message.
 
 - **Primary Sequence:**
   
-  1. The user clicks "Message" button
-  2. The user search for another user in the messaging feature, directly message them through their profile page.
-  3. The system redirects the user to the chatting page and loads all messages between user and the user they want to message
-  4. User enters in a message and clicks "Send" button
-  5. System sends the message
+  1. The user clicks "Message" button on another user's profile page.
+  2. The system redirects the user to the chatting page and loads all messages between user and the user they want to message
+  3. User enters in a message and clicks "Send" button
+  4. System sends the message
 
 
 - **Primary Postconditions:**
@@ -134,37 +132,38 @@
 
 - **Alternate Sequence:** 
 
-  1. User does not enter a message but clicks the "Send" button.
-  2. System sends nothing.
-  3. The other user's name is incorrect.
+  1. The user clicks "Message" button on another user's profile page.
+  2. The system redirects the user to the chatting page and loads all messages between user and the user they want to message
+  3. User does not enter a message but clicks the "Send" button.
+  4. System sends nothing.
 
 
 6. Search for other users (Sherif) 
 - **Pre-condition:**
   1. The user is logged into their account
-  2. In case of multiple or no users with that name, enter other student's ID number.
 
 - **Trigger:**
   User clicks the "Search" button 
 
 - **Primary Sequence:**
   
-  1. User enters the name of the user they want to search for in the text box. 
+  1. User enters the username of the user they want to search for in the text box on top of the page. 
   2. User clicks the "Search" button. 
   3. System redirects the user to the profile page corresponding to the username. 
 
 
 - **Primary Postconditions:**
-  The user is on the profile page of the searched user
+  The user is on the user profile page of the searched username.
 
 - **Alternate Sequence:**
   
-  1. User clicks the "Search" button. 
-  2. System says "No users found" 
-  3. User enters the name of the user they want to search for in the text box. 
+  1. User enters an invalid/ nonexistent username and clicks the "Search" button. 
+  2. System redirects user to a page that reads "No users found."
+  3. User enters the username they want to search for in the text box on top of the page. 
   4. User clicks the "Search" button. 
   5. System redirects the user to the profile page corresponding to the username.
 
-
-
-
+- **Alternate Sequence:**
+  
+  1. User enters nothing and clicks the "Search" button. 
+  2. System redirects user to an "Invalid search" error page.
