@@ -16,7 +16,7 @@
 ## Non-functional Requirements
 
 1. The system login must be secure (entering the wrong password/username means the user is denied access).
-2. Only offered in English as a language option.
+2. The system is expected to support only desktop.
 3. The system is expected to work on Mac/Windows/Linux.
 4. The system is expected to work on Google Chrome.
 
