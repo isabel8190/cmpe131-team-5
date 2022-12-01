@@ -70,7 +70,7 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
 - Team updates
   - Bhargavi Datye: 
   - Isabel Luong: Added code templates from class sessions into git and will continue to work on assigned functional requirements
-  - Sherif Philips: 
+  - Sherif Philips: Created a template .CSS and HTML. created a ganeral template for the code. Working on functional req.
 
 -Group progress
   All members revised their use cases after recieving feedback from the professor. 
