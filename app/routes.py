@@ -40,7 +40,7 @@ def login():
         print(current_form.username.data, current_form.password.data)
         return redirect('/')
     a = 1
-    name = 'Carlos'
+    name = 'Returning User'
     return render_template('login.html', name=name, a=a, form=current_form)
 
 
