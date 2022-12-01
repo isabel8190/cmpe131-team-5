@@ -69,7 +69,7 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
 
 - Team updates
   - Bhargavi Datye: 
-  - Isabel Luong: 
+  - Isabel Luong: Added code templates from class sessions into git and will continue to work on assigned functional requirements
   - Sherif Philips: 
 
 -Group progress

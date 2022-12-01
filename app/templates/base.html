@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+     <head>
+         <title>My Page</title>
+     </head>
+     <body>
+         {% block mycontent %}{% endblock %}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+               {% for message in messages %}
+                  <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+         {% endif %}
+       {% endwith %}
+     </body>
+</html>
