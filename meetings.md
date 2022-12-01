@@ -57,7 +57,7 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
 
 - Team updates
   - Bhargavi Datye: 
-  - Isabel Luong:
+  - Isabel Luong: Helped teammates pull and locate working files and will work on assigned functional requirements.
   - Sherif Philips: Created webapp.py with code templates
 
 -Group progress
@@ -69,10 +69,11 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
 
 - Team updates
   - Bhargavi Datye: 
-  - Isabel Luong:
+  - Isabel Luong: 
   - Sherif Philips: 
 
 -Group progress
+  All members revised their use cases after recieving feedback from the professor. 
 
 ### 2022-12-06 at 10:30
 -Attendance: 
