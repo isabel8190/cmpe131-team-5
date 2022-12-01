@@ -128,14 +128,14 @@
 
 
 - **Primary Postconditions:**
-  The user can see the messages sent and have sent their desired message.
+  The user can see the messages sent and have sent their desired message if the message is valid.
 
 - **Alternate Sequence:** 
 
   1. The user clicks "Message" button on another user's profile page.
   2. The system redirects the user to the chatting page and loads all messages between user and the user they want to message
-  3. User does not enter a message but clicks the "Send" button.
-  4. System sends nothing.
+  3. User enters a bad input (ex: just spaces or nothing) but clicks the "Send" button.
+  4. System sends nothing and refreshes the page (redirects user to the chatting page and loads all messages again)
 
 
 6. Search for other users (Sherif) 
