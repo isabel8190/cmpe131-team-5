@@ -35,7 +35,7 @@
   2. System redirects user to the other user's profile picture. (ex: go to user2's profile)
   3. User clicks the "Follow" button.
   4. System adds the other user to list of user's following list. (ex: adds user2 into user's following list)
-  5. System refreshes the page and changes the "Follow" button to "Following".
+  5. System refreshes the page (redirects user to the other user's page again) and changes the "Follow" button to "Following".
 
 - **Primary Postconditions:**
   The user is following another user and can see the followed user's content on the home page.
@@ -45,7 +45,7 @@
   1. User is logged into their account.
 
 - **Trigger:** 
-  User clicks on a username or the "My Profile" button.
+  User clicks on another user's username OR searches for an existing username OR clicks on the "My Profile" button.
 
 - **Primary Sequence:**
   
@@ -59,6 +59,11 @@
   
   1. User clicks on the "My Profile" button.
   2. System redirects the user to their profile page.
+
+- **Alternate Sequence:** 
+  
+  1. User searches for a user with an existing username.
+  2. System redirects the user to the other user's profile page.
 
 3. View User Home page (Bhargavi)
 - **Pre-condition:** 
