@@ -109,6 +109,7 @@
 - **Pre-condition:** 
   1. The user must be logged in 
   2. The user must be on a another user's profile page
+  3. The user must enter other the other user's correct name.
 
 
 - **Trigger:** 
@@ -117,9 +118,10 @@
 - **Primary Sequence:**
   
   1. The user clicks "Message" button
-  2. The system redirects the user to the chatting page and loads all messages between user and the user they want to message
-  3. User enters in a message and clicks "Send" button
-  4. System sends the message
+  2. The user search for another user in the messaging feature, directly message them through their profile page.
+  3. The system redirects the user to the chatting page and loads all messages between user and the user they want to message
+  4. User enters in a message and clicks "Send" button
+  5. System sends the message
 
 
 - **Primary Postconditions:**
@@ -127,14 +129,15 @@
 
 - **Alternate Sequence:** 
 
-  1. Steps 1-2
-  2. User does not enter a message but clicks the "Send" button.
-  3. System sends nothing.
+  1. User does not enter a message but clicks the "Send" button.
+  2. System sends nothing.
+  3. The other user's name is incorrect.
 
 
 6. Search for other users (Sherif) 
 - **Pre-condition:**
-  1. User is logged into their account
+  1. The user is logged into their account
+  2. In case of multiple or no users with that name, enter other student's ID number.
 
 - **Trigger:**
   User clicks the "Search" button 
