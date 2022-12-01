@@ -118,7 +118,7 @@
 
 
 - **Trigger:** 
-  User clicks "Send" to trigger send private message
+  The user clicks "Message" button on another user's profile page.
 
 - **Primary Sequence:**
   
