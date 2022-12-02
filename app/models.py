@@ -4,6 +4,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from app import login
 from flask_login import UserMixin
 
+from datetime import datetime
+
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String, unique=True)
@@ -18,6 +20,14 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return f'<User {self.username}>'
+
+#messages table
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    message = db.Column(db.Text, nullable=False)
+    image_file = db.Column(db.String(20), nullable=False, default="default.jpg")
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    timestamp = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 @login.user_loader
 def load_user(id):
