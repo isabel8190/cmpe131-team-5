@@ -4,10 +4,7 @@ from app.forms import LoginForm
 from app.models import User, Message
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename #
-from flask_login import current_user
-from flask_login import login_required
-from flask_login import login_user
-from flask_login import logout_user
+from flask_login import current_user, login_required, login_user, logout_user
 
 @myapp_obj.route('/private')
 @login_required
