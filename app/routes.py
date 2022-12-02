@@ -1,8 +1,9 @@
 from app import myapp_obj
-from flask import render_template, redirect, flash
+from flask import render_template, redirect, flash, url_for, request
 from app.forms import LoginForm
-from app.models import User
+from app.models import User, Message
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename #
 from flask_login import current_user
 from flask_login import login_required
 from flask_login import login_user
@@ -39,11 +40,36 @@ def login():
         flash('another quick way to debug')
         print(current_form.username.data, current_form.password.data)
         return redirect('/')
-    a = 1
+    a = "Login Page"
     name = 'Returning User'
     return render_template('login.html', name=name, a=a, form=current_form)
 
+#send private message
+@myapp_obj.route("/private_message/<username>", methods=['GET', 'POST'])
+@login_required
+def private_message(username):
+    user = User.query.filter_by(username=username).first()
+    if request.method == 'POST':
+        message_text = request.form['message']
+        image_file = request.files['image']
+        if image_file.filename != '':
+            image_file.save(os.path.join('static/images', secure_filename(image_file.filename)))
+            new_message = Message(message=message_text, image_file=image_file.filename, user_id=user.id)
+            db.session.add(new_message)
+            db.session.commit()
+            return redirect(url_for('user_home', username=username))
+    return redirect(url_for('home'))
+
+#view followers
+@myapp_obj.route("/followers/<username>")
+@login_required
+def followers(username):
+    user = User.query.filter_by(username=username).first()
+    if user is None:
+        return redirect(url_for('home'))
+    followers = user.followers.split()
+    return render_template('followers.html', user=user, followers=followers)
 
 @myapp_obj.route('/')
 def home():
-    return render_template('base.html')
+    return render_template('home.html')
