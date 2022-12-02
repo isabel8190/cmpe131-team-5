@@ -1,0 +1,256 @@
+body {
+
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+
+    font-size: large;
+
+    color: #000;
+
+    background-color: #fff;
+    /* yellow */
+
+}
+
+
+h1 {
+
+    background-color: lightblue;
+
+    padding: 8px;
+
+    color: blue;
+
+    text-align: center;
+
+    font-weight: bold;
+
+    position: fixed;
+
+    top: 0;
+
+    width: 100%;
+
+}
+
+#main_container {
+
+    padding: 150px 50px 20px 50px;
+
+}
+
+
+#flowchart_photo {
+
+    border: 2px solid rgb(0, 0, 0);
+
+    padding: 5px;
+
+    width: 550px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    display: block;
+
+}
+
+
+h2 {
+
+    color: #000;
+
+    text-align: left;
+
+    padding: 2px 2px 2px 2px;
+
+    background-color: #d3d3d3;
+
+}
+
+/* Overrides body font color style above */
+
+.Extra-padding1 {
+
+    padding: 0px 0px 0px 0px;
+
+    background-color: #e61e1e;
+
+    font-family: Georgia, "Times New Roman", Times, serif;
+
+}
+
+.Extra-padding2 {
+
+    padding: 1px 0px 0px 0px;
+
+    background-color: #1ee62f;
+
+    font-family: Georgia, "Times New Roman", Times, serif;
+
+}
+
+
+.Extra-padding3 {
+
+    padding: 0px 0px 1px 0px;
+
+    background-color: #e61e1e;
+
+    font-family: Georgia, "Times New Roman", Times, serif;
+
+}
+
+.Extra-padding4 {
+
+    padding: 0px 0px 0px 0px;
+
+    background-color: #1ee62f;
+
+    font-family: Georgia, "Times New Roman", Times, serif;
+
+}
+
+
+/* Styles any list item in an unordered list */
+
+ol li {
+
+    font-size: medium;
+
+    font-style: italic;
+
+}
+
+
+/* A "generic" class whose styles can be applied to any element */
+
+.BoldItalic {
+
+    font-weight: bold;
+
+    font-style: italic;
+
+}
+
+
+/* A "generic" class whose styles can be applied to any element */
+
+.BlackOnWhiteSerif {
+
+    padding: 30px;
+    /* on all four sides of any element with this style */
+
+    font-family: Georgia, "Times New Roman", Times, serif;
+
+    color: #000;
+
+    background-color: #fff;
+
+}
+
+
+/* for images*/
+
+.center {
+
+    display: block;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    width: 50%;
+
+}
+
+
+p {
+
+    margin: 0px;
+
+    padding-bottom: 15px;
+
+}
+
+/* A class that can only be applied to paragraph elements */
+
+p.Standout {
+
+    padding: 15px;
+
+    color: #f00;
+    /* red */
+
+    background-color: #d3d3d3;
+    /* lightgrey */
+
+}
+
+
+p.Table_Caption {
+
+    padding: 5px;
+
+    background-color: #1ee62f;
+    /* red */
+
+    color: black;
+    /* lightgrey */
+
+}
+
+
+table {
+
+    font-family: arial, sans-serif;
+
+    border-collapse: collapse;
+
+    width: 100%;
+
+    border-color: rgb(125, 19, 224);
+
+}
+
+
+td,
+
+th {
+
+    border: 1px solid #dddddd;
+
+    text-align: left;
+
+    padding: 8px;
+
+}
+
+
+tr:nth-child(even) {
+
+    background-color: #dddddd;
+
+}
+
+
+#more-less {
+
+    color: blue;
+
+    cursor: pointer;
+
+}
+
+
+#flowChart {
+
+    display: block;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    padding-bottom: 20px;
+
+}
