@@ -1,7 +1,7 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash, request, url_for
 from app.forms import LoginForm, SignupForm
-from app.models import User, Message
+from app.models import User, Message, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user, login_required, login_user, logout_user
 
@@ -83,18 +83,6 @@ def signup():
         return redirect(url_for('login'))
     return render_template('signup.html', form=current_form)
 
-#
-@myapp_obj.route('/signup_handler', methods=['POST'])
-def signup_handler():
-    username = request.form['username']
-    password = request.form['password']
-    hashed_password = generate_password_hash(password)
-
-    user = User(username=username, password=hashed_password) 
-    user.save()
-
-    return redirect('/login')
-
 #view user home page
 #@myapp_obj.route('/homepage')
 #@login_required
@@ -104,7 +92,7 @@ def signup_handler():
 #   return render_template('user_home.html', user=user, messages=messages)
 
 
-@myapp_obj.route('/home')
+@myapp_obj.route('/userhome')
 @login_required
 def home():
     current_user.username = User.query.filter_by(username=current_user.username).first()
