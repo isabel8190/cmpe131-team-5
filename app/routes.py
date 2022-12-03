@@ -196,3 +196,6 @@ def view_profile():
         return redirect(url_for('home'))
 
     return render_template('profile.html', user=user)
+
+
+    
