@@ -139,3 +139,35 @@ def view_profile():
         return redirect(url_for('home'))
 
     return render_template('profile.html', user=user)
+
+
+@myapp_obj.route('/user/<username>/edit_profile', methods=['POST', 'GET'])
+@login_required
+def edit_profile():
+    user = User.query.filter_by(username=username).first()
+
+    if user is None:
+        flash('User not found.')
+        return redirect(url_for('home'))
+
+    return render_template('edit_profile.html', user=user)
+
+#Edit profile
+@myapp_obj.route('/user/<username>/edit_profile_handler', methods=['POST'])
+@login_required
+def edit_profile_handler():
+    user_id = request.form['user_id']
+    display_name = request.form['display_name']
+    about_me = request.form['about_me']
+
+    user = User.query.filter_by(id=user_id).first()
+
+    if user is None:
+        flash('User not found.')
+        return redirect(url_for('home'))
+
+    user.display_name = display_name
+    user.about_me = about_me
+    db.session.commit()
+
+    return redirect('/user/' + user.username + '/profile')
