@@ -65,7 +65,7 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
 
 
 ### 2022-12-02 at 15:00 (3:00pm - 4:33pm)
--Attendance: 
+-Attendance: Isabel Luong, Bhargavi Datye, and Sherif Philips
 
 - Team updates
   - Bhargavi Datye: Researched assigned functional requirements and how to connect the program to a database. 

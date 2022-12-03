@@ -1,15 +1,7 @@
 {% extends "base.html" %}
-<div>BlogConnect: <a href="/">Login</a></div>
 
 {% block mycontent %}
-<h1>{{a}}</h1>
-<p>Hello {{name}} </p>
+<h1>{{user.username}}'s Profile</h1>
+<p>User: {{user.username}} </p>
 
-<form action="" method="POST" novalidate>
-    {{form.hidden_tag()}}
-    <p>{{form.username.label}} <br> {{form.username()}}</p>
-    <p>{{form.password.label}} <br> {{form.password()}}</p>
-    <p>{{form.remember_me.label}} <br> {{form.remember_me()}}</p>
-    <p>{{form.submit.label}} <br> {{form.submit()}}</p>
-</form>
 {% endblock %}
