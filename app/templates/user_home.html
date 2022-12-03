@@ -1,15 +1,26 @@
 {% extends "base.html" %}
 
 {% block mycontent %}
+
 <head>
     <title>User Home</title>
 </head>
 
 <body>
-    <h1>Welcome {{ user.username }}!</h1>
-    <h2>Your messages:</h2>
-    {% for message in messages %}
-        <p>{{ message.text }}</p>
+    <h1>Welcome to our Social Network!</h1>
+    <h2>Where friends meet and share.</h2>
+    <br>
+    <br>
+    {% for post in posts %}
+    <div class="post">
+        <p>{{ post.user.username }}</p>
+        <p>{{ post.content }}</p>
+    </div>
+    {% endfor %}
+    {% for post in posts %}
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content }}</p>
+    <hr>
     {% endfor %}
 </body>
 
