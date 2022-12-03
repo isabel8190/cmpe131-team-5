@@ -182,3 +182,20 @@ def follow_handler():
 
     db.session.commit()
     return redirect('/user/' + user_to_follow.username + '/profile')
+
+
+
+#View a user profile. 
+@myapp_obj.route('/user/<username>/profile', methods=['POST', 'GET'])
+@login_required
+def view_profile():
+    user = User.query.filter_by(username=username).first()
+
+    if user is None:
+        flash('User not found.')
+        return redirect(url_for('home'))
+
+    return render_template('profile.html', user=user)
+
+
+    
