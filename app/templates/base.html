@@ -6,11 +6,10 @@
         BlogConnect 
           {% if current_user.is_anonymous %}
           {% else %}
-          <a href="{{ url_for('userhome') }}">Home</a>
+          <a href="{{ url_for('home', username=current_user.username) }}">Home</a>
           <a href="{{ url_for('profile', username=current_user.username) }}">My Profile</a>
-          <a href="{{ url_for('delete_account' }}">My Profile</a>
+          <a href="{{ url_for('delete') }}">Delete Account</a>
           <a href="{{ url_for('logout') }}">Logout</a>
-          <a href="{{ url_for('logout') }}">Delete Account</a>
           {% endif %}
     
       </div>

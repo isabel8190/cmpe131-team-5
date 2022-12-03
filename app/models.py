@@ -38,6 +38,7 @@ class Message(db.Model):
     def __repr__(self):
         return 
 
+'''
 class Post(db.Model):
     tablename = 'posts'
     id = db.Column(db.Integer, primary_key=True)
@@ -49,3 +50,5 @@ class Post(db.Model):
     def init(self, user_id, content):
         self.user_id = user_id
         self.content = content
+
+'''

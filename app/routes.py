@@ -1,7 +1,7 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash, request, url_for
 from app.forms import LoginForm, SignupForm
-from app.models import User, Message, Post
+from app.models import User, Message#, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user, login_required, login_user, logout_user
 
@@ -18,45 +18,19 @@ def login():
         if user is None or not user.check_password(current_form.password.data):
             flash('Invalid password!')
             # if passwords don't match, send user to login again
-            return redirect(url_for('userhome'))
+            return redirect(url_for('login'))
 
         # login user
         login_user(user, remember=current_form.remember_me.data)
         #flash('quick way to debug')
         #flash('another quick way to debug')
         print(current_form.username.data, current_form.password.data)
-        return redirect('/')
-    titlePage = "Login Page"
-    greetingMsg = 'Hello Returning User'
-    return render_template('login.html', titlePage = titlePage, greetingMsg = greetingMsg, form=current_form)
 
-#user profile - isabel
-@myapp_obj.route('/user/<username>/profile')
-@login_required
-def profile():
-    return render_template('profile.html')
+        #if login is successful, go to home page with username in url
+        return redirect(url_for('home', username = current_form.username.data))
+    return render_template('login.html', form=current_form)
 
-#view followers - isabel
-@myapp_obj.route('/user/<username>/followers')
-@login_required
-def followers():
-
-    return render_template('followers.html')
-
-#private message - isabel
-@myapp_obj.route('/user/<username>/message')
-@login_required
-def message():
-    return render_template('message.html')
-
-#logout
-#@myapp_obj.route('/logout')
-#@login_required
-#def logout():
-#    #load_user(current_user)
-#    logout_user(current_user)
-#    return redirect('/')
-
+#logout - sherif
 @myapp_obj.route('/logout')
 def logout():
     if current_user.is_authenticated:
@@ -66,7 +40,32 @@ def logout():
     else:
         return redirect(url_for('login'))
 
-#create an account 
+#user profile - isabel
+@myapp_obj.route('/user/<username>/profile')
+@login_required
+def profile(username):
+    user = User.query.filter_by(username=username).first_or_404()
+
+    if user is None:
+        flash('User not found.')
+        return redirect(url_for('home'))
+
+    return render_template('profile.html', user=user)
+
+#view followers - isabel
+@myapp_obj.route('/user/<username>/followers')
+@login_required
+def followers(username):
+
+    return render_template('followers.html')
+
+#private message - isabel
+@myapp_obj.route('/user/<username>/message')
+@login_required
+def message(username):
+    return render_template('message.html')
+
+#create an account - isabel
 @myapp_obj.route('/signup', methods = ['POST', 'GET'])
 def signup():
     if current_user.is_authenticated:
@@ -84,25 +83,25 @@ def signup():
     return render_template('signup.html', form=current_form)
 
 #view user home page
-#@myapp_obj.route('/homepage')
-#@login_required
-#def home(username):
-#    user = User.query.filter_by(username=username).first_or_404()
-#    messages = Message.query.filter_by(user_id=user.id).all()
-#   return render_template('user_home.html', user=user, messages=messages)
+@myapp_obj.route('/user/<username>/home')
+@login_required
+def home(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    #messages = Message.query.filter_by(user_id=user.id).all()
+    return render_template('home.html', user=user) #, messages=messages)
 
-
+'''
 @myapp_obj.route('/userhome')
 @login_required
 def home():
     current_user.username = User.query.filter_by(username=current_user.username).first()
     message = Message.query.filter_by(user_id=current_user.username.id).all()
     return render_template('user_home.html', titlePage = titlePage, message = message)
-
+'''
 
 #delete account:
-@myapp_obj.route('/delete_account', methods=['POST'])
-def delete_account():
+@myapp_obj.route('/user/delete', methods=['POST'])
+def delete():
     user_id = request.form['user_id']
     user_to_delete = User.query.filter_by(id=user_id).first()
 
@@ -177,20 +176,6 @@ def follow_handler():
 
     db.session.commit()
     return redirect('/user/' + user_to_follow.username + '/profile')
-
-
-
-#View a user profile. 
-@myapp_obj.route('/user/<username>/profile', methods=['POST', 'GET'])
-@login_required
-def view_profile():
-    user = User.query.filter_by(username=username).first()
-
-    if user is None:
-        flash('User not found.')
-        return redirect(url_for('home'))
-
-    return render_template('profile.html', user=user)
 
 
     

@@ -1,8 +1,8 @@
 ## Functional Requirements
 
-1. Login (Isabel)
-2. Logout (Sherif)
-3. Create a new account (Bhargavi)
+1. Login (Isabel) done
+2. Logout (Sherif) done
+3. Create a new account (Bhargavi) done
 4. Delete account (Bhargavi)
 5. View user home page (user can see messages of users they follow) (Bhargavi)
 6. Send public messages to followers (may include images) (Bhargavi)

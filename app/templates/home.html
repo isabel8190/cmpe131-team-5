@@ -3,14 +3,16 @@
 {% block mycontent %}
 
 <head>
-    <title>User Home</title>
+    <title>{{user.username}}'s Home</title>
 </head>
 
 <body>
-    <h1>Welcome to our Social Network!</h1>
-    <h2>Where friends meet and share.</h2>
+    <h1>Welcome to BlogConnect!</h1>
+    <h2></h2>
     <br>
     <br>
+
+    
     {% for post in posts %}
     <div class="post">
         <p>{{ post.user.username }}</p>
