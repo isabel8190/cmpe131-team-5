@@ -8,6 +8,10 @@ from flask_login import current_user, login_required, login_user, logout_user
 #login - isabel
 @myapp_obj.route('/', methods=['POST', 'GET'])
 def login():
+    #if user is already logged in
+    if current_user.is_authenticated:
+        return redirect(url_for('home', username = current_user.username))
+
     current_form = LoginForm()
     # taking input from the user and doing somithing with it
     if current_form.validate_on_submit():
