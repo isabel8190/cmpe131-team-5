@@ -118,7 +118,7 @@ def delete_account():
 #view profile
 @myapp_obj.route('/user/<username>/profile', methods=['POST', 'GET'])
 @login_required
-def view_profile():
+def view_profile(username):
 
     user = User.query.filter_by(username=username).first()
 
