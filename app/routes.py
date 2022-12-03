@@ -96,9 +96,17 @@ def signup_handler():
     return redirect('/login')
 
 #view user home page
-@myapp_obj.route('/userhome')
+#@myapp_obj.route('/homepage')
+#@login_required
+#def home(username):
+#    user = User.query.filter_by(username=username).first_or_404()
+#    messages = Message.query.filter_by(user_id=user.id).all()
+#   return render_template('user_home.html', user=user, messages=messages)
+
+
+@myapp_obj.route('/home')
 @login_required
-def userhome():
-    #user = User.query.filter_by(username=username).first_or_404()
-    #messages = Message.query.filter_by(user_id=user.id).all()
-    return render_template('user_home.html') #, user=user, messages=messages)
+def home():
+    current_user.username = User.query.filter_by(username=current_user.username).first()
+    message = Message.query.filter_by(user_id=current_user.username.id).all()
+    return render_template('user_home.html', titlePage = titlePage, message = message)
