@@ -64,16 +64,24 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
   All members are aware of the next milestone and has found resources to start on the functional requirements.
 
 
-### 2022-12-02 at 15:00 (3:00 PM)
+### 2022-12-02 at 15:00 (3:00pm - 4:33pm)
 -Attendance: 
 
 - Team updates
-  - Bhargavi Datye: 
+  - Bhargavi Datye: Researched assigned functional requirements and how to connect the program to a database. 
   - Isabel Luong: Added code templates from class sessions into git and will continue to work on assigned functional requirements
   - Sherif Philips: Created a template .CSS and HTML. created a ganeral template for the code. Working on functional req.
-
+  
 -Group progress
   All members revised their use cases after recieving feedback from the professor. 
+  
+- Pair Programming (90mins)
+  - Group worked on the login and signup pages, and began working on the homepage
+  - Finished python code and html for login and signup pages
+  - Tried to figure out how to connect program to a database
+  
+- For next meeting:
+  - Look up how to connect code to a database
 
 ### 2022-12-06 at 10:30
 -Attendance: 
