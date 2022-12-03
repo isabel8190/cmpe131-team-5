@@ -81,7 +81,7 @@ def signup_handler():
     password = request.form['password']
     hashed_password = generate_password_hash(password)
 
-    user = User(username=username, password=hashed_password)
+    user = User(username=username, password=hashed_password) 
     user.save()
 
     return redirect('/login')
