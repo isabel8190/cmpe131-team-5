@@ -3,7 +3,7 @@
      <head>
          <title>SHINE Connect</title>
       <div>
-        BlogConnect 
+        SHINE Connect 
           {% if current_user.is_anonymous %}
           {% else %}
           <a href="{{ url_for('home', username=current_user.username) }}">Home</a>
