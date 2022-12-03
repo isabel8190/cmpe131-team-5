@@ -36,3 +36,15 @@ class Message(db.Model):
 
     def __repr__(self):
         return 
+
+class Post(db.Model):
+    tablename = 'posts'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('User.id'))
+    content = db.Column(db.String(140))
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    user = db.relationship('User', backref=db.backref('posts', lazy='dynamic'))
+
+    def init(self, user_id, content):
+        self.user_id = user_id
+        self.content = content
