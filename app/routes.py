@@ -18,7 +18,7 @@ def login():
         if user is None or not user.check_password(current_form.password.data):
             flash('Invalid password!')
             # if passwords don't match, send user to login again
-            return redirect(url_for('home'))
+            return redirect(url_for('userhome'))
 
         # login user
         login_user(user, remember=current_form.remember_me.data)
@@ -66,11 +66,11 @@ def logout():
     else:
         return redirect(url_for('login'))
 
-#create an account
+#create an account 
 @myapp_obj.route('/signup', methods = ['POST', 'GET'])
 def signup():
     if current_user.is_authenticated:
-        return redirect(url_for('home'))           #if user is logged in, go to homepage
+        return redirect(url_for('userhome'))           #if user is logged in, go to homepage
     current_form = SignupForm()
 
     #On submission, checks if data is accepted by all field validators
@@ -90,15 +90,15 @@ def signup_handler():
     password = request.form['password']
     hashed_password = generate_password_hash(password)
 
-    user = User(username=username, password=hashed_password)
+    user = User(username=username, password=hashed_password) 
     user.save()
 
     return redirect('/login')
 
 #view user home page
-@myapp_obj.route('/homepage')
+@myapp_obj.route('/userhome')
 @login_required
-def home(username):
-    user = User.query.filter_by(username=username).first_or_404()
-    messages = Message.query.filter_by(user_id=user.id).all()
-    return render_template('user_home.html', user=user, messages=messages)
+def userhome():
+    #user = User.query.filter_by(username=username).first_or_404()
+    #messages = Message.query.filter_by(user_id=user.id).all()
+    return render_template('user_home.html') #, user=user, messages=messages)
