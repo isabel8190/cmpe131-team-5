@@ -159,3 +159,26 @@ def edit_profile_handler():
     db.session.commit()
 
     return redirect('/user/' + user.username + '/profile')
+
+
+
+#follow or unfollow a user
+@myapp_obj.route('/user/<username>/follow', methods=['POST'])
+@login_required
+def follow_handler():
+    user_id = request.form['user_id']
+    user_to_follow = User.query.filter_by(id=user_id).first()
+
+    if user_to_follow is None:
+        flash('User not found.')
+        return redirect(url_for('home'))
+
+    if user_to_follow in current_user.following:
+        current_user.following.remove(user_to_follow)
+        flash('You stopped following ' + user_to_follow.username + '.')
+    else:
+        current_user.following.append(user_to_follow)
+        flash('You are now following ' + user_to_follow.username + '.')
+
+    db.session.commit()
+    return redirect('/user/' + user_to_follow.username + '/profile')
