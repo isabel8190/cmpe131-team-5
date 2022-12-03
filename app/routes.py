@@ -94,7 +94,36 @@ def signup():
 
 @myapp_obj.route('/userhome')
 @login_required
-def userhome():
-    #current_user.username = User.query.filter_by(username=current_user.username).first()
-    #message = Message.query.filter_by(user_id=current_user.username.id).all()
-    return render_template('user_home.html') #, message = message)
+def home():
+    current_user.username = User.query.filter_by(username=current_user.username).first()
+    message = Message.query.filter_by(user_id=current_user.username.id).all()
+    return render_template('user_home.html', titlePage = titlePage, message = message)
+
+
+#delete account:
+
+
+@myapp_obj.route('/delete_account', methods=['POST'])
+def delete_account():
+    user_id = request.form['user_id']
+    user_to_delete = User.query.filter_by(id=user_id).first()
+
+    if user_to_delete is not None:
+        db.session.delete(user_to_delete)
+        db.session.commit()
+        flash('Account deleted successfully')
+
+    return redirect('/home')
+
+#view profile
+@myapp_obj.route('/user/<username>/profile', methods=['POST', 'GET'])
+@login_required
+def view_profile():
+
+    user = User.query.filter_by(username=username).first()
+
+    if user is None:
+        flash('User not found.')
+        return redirect(url_for('home'))
+
+    return render_template('profile.html', user=user)
