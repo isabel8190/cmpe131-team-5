@@ -1,9 +1,8 @@
 from app import myapp_obj
-from flask import render_template, redirect, flash, url_for, request
+from flask import render_template, redirect, flash, request, url_for
 from app.forms import LoginForm
 from app.models import User, Message
 from werkzeug.security import generate_password_hash, check_password_hash
-from werkzeug.utils import secure_filename #
 from flask_login import current_user, login_required, login_user, logout_user
 
 @myapp_obj.route('/private')
@@ -41,32 +40,31 @@ def login():
     name = 'Returning User'
     return render_template('login.html', name=name, a=a, form=current_form)
 
-#send private message
-@myapp_obj.route("/private_message/<username>", methods=['GET', 'POST'])
-@login_required
-def private_message(username):
-    user = User.query.filter_by(username=username).first()
-    if request.method == 'POST':
-        message_text = request.form['message']
-        image_file = request.files['image']
-        if image_file.filename != '':
-            image_file.save(os.path.join('static/images', secure_filename(image_file.filename)))
-            new_message = Message(message=message_text, image_file=image_file.filename, user_id=user.id)
-            db.session.add(new_message)
-            db.session.commit()
-            return redirect(url_for('user_home', username=username))
-    return redirect(url_for('home'))
-
-#view followers
-@myapp_obj.route("/followers/<username>")
-@login_required
-def followers(username):
-    user = User.query.filter_by(username=username).first()
-    if user is None:
-        return redirect(url_for('home'))
-    followers = user.followers.split()
-    return render_template('followers.html', user=user, followers=followers)
-
 @myapp_obj.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('base.html')
+
+
+
+@myapp_obj.route('/signup')
+def signup():
+    return render_template('signup.html')
+
+@myapp_obj.route('/signup_handler', methods=['POST'])
+def signup_handler():
+    username = request.form['username']
+    password = request.form['password']
+    hashed_password = generate_password_hash(password)
+
+    user = User(username=username, password=hashed_password)
+    user.save()
+
+    return redirect('/login')
+
+#view user home page
+@myapp_obj.route('/userhome')
+#@login_required
+def user_home(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    messages = Message.query.filter_by(user_id=user.id).all()
+    return render_template('user_home.html', user=user, messages=messages)

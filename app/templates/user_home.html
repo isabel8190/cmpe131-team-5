@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+HTML
+<head>
+    <title>User Home</title>
+</head>
+
+<body>
+    <h1>Welcome {{ user.username }}!</h1>
+    <h2>Your messages:</h2>
+    {% for message in messages %}
+        <p>{{ message.text }}</p>
+    {% endfor %}
+</body>
+
+</html>
