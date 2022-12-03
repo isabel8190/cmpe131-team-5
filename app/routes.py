@@ -50,12 +50,21 @@ def message():
     return render_template('message.html')
 
 #logout
-@myapp_obj.route('/logout', methods = ['POST', 'GET'])
-@login_required
+#@myapp_obj.route('/logout')
+#@login_required
+#def logout():
+#    #load_user(current_user)
+#    logout_user(current_user)
+#    return redirect('/')
+
+@myapp_obj.route('/logout')
 def logout():
-    #load_user(current_user)
-    logout_user(current_user)
-    return redirect('/')
+    if current_user.is_authenticated:
+        logout_user()
+        flash('You have logged out')
+        return redirect(url_for('login'))
+    else:
+        return redirect(url_for('login'))
 
 #create an account 
 @myapp_obj.route('/signup', methods = ['POST', 'GET'])
