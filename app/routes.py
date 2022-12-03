@@ -101,8 +101,6 @@ def home():
 
 
 #delete account:
-
-
 @myapp_obj.route('/delete_account', methods=['POST'])
 def delete_account():
     user_id = request.form['user_id']
@@ -128,10 +126,9 @@ def view_profile(username):
 
     return render_template('profile.html', user=user)
 
-
 @myapp_obj.route('/user/<username>/edit_profile', methods=['POST', 'GET'])
 @login_required
-def edit_profile():
+def edit_profile(username):
     user = User.query.filter_by(username=username).first()
 
     if user is None:
@@ -159,8 +156,6 @@ def edit_profile_handler():
     db.session.commit()
 
     return redirect('/user/' + user.username + '/profile')
-
-
 
 #follow or unfollow a user
 @myapp_obj.route('/user/<username>/follow', methods=['POST'])
