@@ -83,6 +83,38 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
 - For next meeting:
   - Look up how to connect code to a database
 
+
+### 2022-12-06 at 10:30
+- Attendance: Bhargavi Datye, Isabel Luong, Sherif Philips
+  
+- Team updates:
+  Group looked up how to connect the program to a database in order to continue working on the home page
+  
+  - Bhargavi Datye: Wrote html for a logout button, researched how to implment delete account, messages and profile.
+  - Isabel Luong: Added a navigation bar for user to navigate through the website. Figured out how to connect program to a database
+  - Sherif Philips: Researched models for POST, edit profile and follow/unfollow, and delete account
+
+- Pair Programming (90mins)
+  - Group worked on logout button, home page, delete account button, and posting messages
+  - Debugged issues regarding logout
+  - Added a delete account link in navigation
+  - Added edit profile function under routes and under class user in models
+  
+- For next meeting: 
+  - Research how to post messages, how to implement "edit profile", and how to search for users
+  
+
+- Who attended the meeting
+- Team updates (15min or less)
+  <Each team member gives an update of what they did from the last meeting and what they plan to do next. If they are stuck, bring it up here to see if others can help.>
+  - <name> worked on X. Will work on Y next. 
+
+- pair-programming (optional) (25 mins)
+  <- Pair program on one part of the project. Driver will be the person responsible for that requirement.>
+
+- Summarize group progress
+
+
 ### 2022-12-06 at 10:30
 -Attendance: 
 
