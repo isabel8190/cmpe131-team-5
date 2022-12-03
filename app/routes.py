@@ -18,7 +18,7 @@ def login():
         if user is None or not user.check_password(current_form.password.data):
             flash('Invalid password!')
             # if passwords don't match, send user to login again
-            return redirect(url_for('home'))
+            return redirect(url_for('userhome'))
 
         # login user
         login_user(user, remember=current_form.remember_me.data)
@@ -66,11 +66,11 @@ def logout():
     else:
         return redirect(url_for('login'))
 
-#create an account
+#create an account 
 @myapp_obj.route('/signup', methods = ['POST', 'GET'])
 def signup():
     if current_user.is_authenticated:
-        return redirect(url_for('home'))           #if user is logged in, go to homepage
+        return redirect(url_for('userhome'))           #if user is logged in, go to homepage
     current_form = SignupForm()
 
     #On submission, checks if data is accepted by all field validators
@@ -90,7 +90,7 @@ def signup_handler():
     password = request.form['password']
     hashed_password = generate_password_hash(password)
 
-    user = User(username=username, password=hashed_password)
+    user = User(username=username, password=hashed_password) 
     user.save()
 
     return redirect('/login')
@@ -110,31 +110,3 @@ def home():
     current_user.username = User.query.filter_by(username=current_user.username).first()
     message = Message.query.filter_by(user_id=current_user.username.id).all()
     return render_template('user_home.html', titlePage = titlePage, message = message)
-
-
-
-#delete account
-@myapp_obj.route('/delete_account', methods=['POST'])
-def delete_account():
-    user_id = request.form['user_id']
-    user_to_delete = User.query.filter_by(id=user_id).first()
-
-    if user_to_delete is not None:
-        db.session.delete(user_to_delete)
-        db.session.commit()
-        flash('Account deleted successfully')
-
-    return redirect('/home')
-
-#view profile
-@myapp_obj.route('/user/<username>/profile', methods=['POST', 'GET'])
-@login_required
-def view_profile():
-
-    user = User.query.filter_by(username=username).first()
-
-    if user is None:
-        flash('User not found.')
-        return redirect(url_for('home'))
-
-    return render_template('profile.html', user=user)
