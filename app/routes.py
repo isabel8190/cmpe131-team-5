@@ -111,14 +111,14 @@ def delete_account():
     if user_to_delete is not None:
         db.session.delete(user_to_delete)
         db.session.commit()
-        flash('Account deleted successfully')
+        flash('Account deleted successfully') 
 
     return redirect('/home')
 
 #view profile
 @myapp_obj.route('/user/<username>/profile', methods=['POST', 'GET'])
 @login_required
-def view_profile():
+def view_profile(username):
 
     user = User.query.filter_by(username=username).first()
 
