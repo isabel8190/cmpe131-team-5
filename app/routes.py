@@ -127,3 +127,58 @@ def view_profile(username):
         return redirect(url_for('home'))
 
     return render_template('profile.html', user=user)
+
+
+@myapp_obj.route('/user/<username>/edit_profile', methods=['POST', 'GET'])
+@login_required
+def edit_profile():
+    user = User.query.filter_by(username=username).first()
+
+    if user is None:
+        flash('User not found.')
+        return redirect(url_for('home'))
+
+    return render_template('edit_profile.html', user=user)
+
+#Edit profile
+@myapp_obj.route('/user/<username>/edit_profile_handler', methods=['POST'])
+@login_required
+def edit_profile_handler():
+    user_id = request.form['user_id']
+    display_name = request.form['display_name']
+    about_me = request.form['about_me']
+
+    user = User.query.filter_by(id=user_id).first()
+
+    if user is None:
+        flash('User not found.')
+        return redirect(url_for('home'))
+
+    user.display_name = display_name
+    user.about_me = about_me
+    db.session.commit()
+
+    return redirect('/user/' + user.username + '/profile')
+
+
+
+#follow or unfollow a user
+@myapp_obj.route('/user/<username>/follow', methods=['POST'])
+@login_required
+def follow_handler():
+    user_id = request.form['user_id']
+    user_to_follow = User.query.filter_by(id=user_id).first()
+
+    if user_to_follow is None:
+        flash('User not found.')
+        return redirect(url_for('home'))
+
+    if user_to_follow in current_user.following:
+        current_user.following.remove(user_to_follow)
+        flash('You stopped following ' + user_to_follow.username + '.')
+    else:
+        current_user.following.append(user_to_follow)
+        flash('You are now following ' + user_to_follow.username + '.')
+
+    db.session.commit()
+    return redirect('/user/' + user_to_follow.username + '/profile')
