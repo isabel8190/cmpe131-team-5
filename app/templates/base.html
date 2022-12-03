@@ -1,13 +1,12 @@
 <!DOCTYPE HTML>
 <html>
      <head>
-         <title>My Page</title>
+         <title>Blog Connect</title>
      </head>
      <body>
       <div>
         BlogConnect 
-          {% if current_user.is_anonymous %}
-          {% else %}
+          {% if current_user.not_anonymous %}
           <a href="{{ url_for('home') }}">Home</a>
           <a href="{{ url_for('profile', username=current_user.username) }}">My Profile</a>
           <a href="{{ url_for('logout') }}">Logout</a>
