@@ -1,17 +1,33 @@
-<!DOCTYPE html>
-<html>
-HTML
-<head>
-    <title>Signup</title>
-</head>
+{% extends "base.html" %}
+
+{% block mycontent %}
 
 <body>
-    <h1>Signup here</h1>
-    <form action="/signup_handler" method="POST">
-        Username: <input type="text" name="username"><br>
-        Password: <input type="password" name="password"><br>
-        <input type="submit" value="Signup">
-    </form>
+    <h1>Sign Up</h1>
+    <form action="" method="POST" novalidate>
+        {{form.hidden_tag()}}
+        <p>
+            {{form.username.label}} <br> 
+            {{form.username(size = 32)}} <br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.password.label }}<br>
+            {{form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.confirmPassword.label }}<br>
+            {{form.confirmPassword(size=32) }}<br>
+            {% for error in form.confirmPassword.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{form.submit.label}} <br> {{form.submit()}}</p>
 </body>
 
-</html>
+{% endblock %}

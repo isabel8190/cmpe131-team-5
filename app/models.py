@@ -8,9 +8,10 @@ from datetime import datetime
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key = True)
-    username = db.Column(db.String, unique=True)
-    password = db.Column(db.String(200))
-    email = db.Column(db.String(32), unique=True)
+    username = db.Column(db.String(32), unique=True, nullable = False) #dont want username to be null, 32 characters max
+    password = db.Column(db.String(32), nullable = False)
+    email = db.Column(db.String(64), unique=True, nullable = False)
+    messages = db.relationship('Message', backref='author', lazy = True)
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
@@ -21,6 +22,10 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f'<User {self.username}>'
 
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
 #messages table
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -29,6 +34,5 @@ class Message(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     timestamp = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
-@login.user_loader
-def load_user(id):
-    return User.query.get(int(id))
+    def __repr__(self):
+        return 

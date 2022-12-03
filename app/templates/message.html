@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block mycontent %}
-<h1>{{titlePage}}</h1>
-<p>{{greetingMsg}} </p>
+<h1>{{a}}</h1>
+<p>Hello {{name}} </p>
 
 <form action="" method="POST" novalidate>
     {{form.hidden_tag()}}
@@ -10,6 +10,5 @@
     <p>{{form.password.label}} <br> {{form.password()}}</p>
     <p>{{form.remember_me.label}} <br> {{form.remember_me()}}</p>
     <p>{{form.submit.label}} <br> {{form.submit()}}</p>
-    <p>New User? <a href="{{ url_for('signup') }}">Sign Up Here</a><p>
 </form>
 {% endblock %}
