@@ -56,7 +56,7 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
 -Attendance: Isabel Luong, Bhargavi Datye, and Sherif Philips
 
 - Team updates
-  - Bhargavi Datye: 
+  - Bhargavi Datye: Finished choosing functional requirements and began research.
   - Isabel Luong: Helped teammates pull and locate working files and will work on assigned functional requirements.
   - Sherif Philips: Created webapp.py with code templates
 
@@ -84,7 +84,7 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
   - Look up how to connect code to a database
 
 
-### 2022-12-06 at 10:30
+### 2022-12-03 at 12:00 (12:00pm-1:35pm)
 - Attendance: Bhargavi Datye, Isabel Luong, Sherif Philips
   
 - Team updates:
@@ -102,7 +102,17 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
   
 - For next meeting: 
   - Research how to post messages, how to implement "edit profile", and how to search for users
-  
+
+
+### 2022-12-06 at 10:30
+-Attendance: 
+
+- Team updates
+  - Bhargavi Datye: 
+  - Isabel Luong:
+  - Sherif Philips: 
+
+-Group progress
 
 - Who attended the meeting
 - Team updates (15min or less)
@@ -113,6 +123,7 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
   <- Pair program on one part of the project. Driver will be the person responsible for that requirement.>
 
 - Summarize group progress
+
 
 
 ### 2022-12-06 at 10:30
