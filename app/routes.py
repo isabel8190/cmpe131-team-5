@@ -1,6 +1,6 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash, request, url_for
-from app.forms import LoginForm, SignupForm
+from app.forms import LoginForm, SignupForm, PostForm, EditProfileForm
 from app.models import User, Message#, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user, login_required, login_user, logout_user
@@ -45,23 +45,57 @@ def logout():
         return redirect(url_for('login'))
 
 #user profile - isabel
-@myapp_obj.route('/user/<username>/profile')
+@myapp_obj.route('/user/<username>/profile/')
 @login_required
 def profile(username):
     user = User.query.filter_by(username=username).first_or_404()
 
-    if user is None:
-        flash('User not found.')
-        return redirect(url_for('home'))
+    #FILl THIS OUT
 
     return render_template('profile.html', user=user)
+
+#edit profile - isabel
+@myapp_obj.route('/user/<username>/profile/edit', methods=['POST', 'GET'])
+@login_required
+def edit(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    current_form = EditProfileForm()
+
+    if current_form.validate_on_submit():
+        # check user's password with what is saved on the database
+        if not user.check_password(current_form.confirmPassword.data):
+            flash('Incorrect password, changes not saved.')
+            # if passwords don't match, send user to edit again
+            return redirect(url_for('edit', username=username))
+
+        #current_user.picture = current_form.picture.data
+
+        if len(current_form.newUsername.data) != 0:
+            user.set_username(current_form.newUsername.data) 
+            flash('Password changed!')
+            db.session.commit()
+        if len(current_form.newPassword.data) != 0:
+            user.set_password(current_form.newPassword.data)
+            flash('Username changed!')
+            db.session.commit()
+        flash('Please keep your login information in a safe place!')
+        return redirect(url_for('login'))
+
+    return render_template('edit.html' ,user=user, form=current_form)
 
 #view followers - isabel
 @myapp_obj.route('/user/<username>/followers')
 @login_required
 def followers(username):
-
+    
     return render_template('followers.html')
+
+#view following - isabel
+@myapp_obj.route('/user/<username>/following')
+@login_required
+def following(username):
+    
+    return render_template('following.html')
 
 #private message - isabel
 @myapp_obj.route('/user/<username>/message')
@@ -73,10 +107,10 @@ def message(username):
 @myapp_obj.route('/signup', methods = ['POST', 'GET'])
 def signup():
     if current_user.is_authenticated:
-        return redirect(url_for('userhome'))           #if user is logged in, go to homepage
+        return redirect(url_for('home', username = current_user.username))           #if user is logged in, go to homepage
     current_form = SignupForm()
 
-    #On submission, checks if data is accepted by all field validators
+    #On submission, checks if data is acccepted by all field validators
     if current_form.validate_on_submit():
         user = User(username=current_form.username.data)
         user.set_password(current_form.password.data)
@@ -87,12 +121,13 @@ def signup():
     return render_template('signup.html', form=current_form)
 
 #view user home page
-@myapp_obj.route('/user/<username>/home')
+@myapp_obj.route('/user/<username>/home', methods = ['POST', 'GET'])
 @login_required
 def home(username):
+    current_form = PostForm()
     user = User.query.filter_by(username=username).first_or_404()
     #messages = Message.query.filter_by(user_id=user.id).all()
-    return render_template('home.html', user=user) #, messages=messages)
+    return render_template('home.html', user=user, form = current_form) #, messages=messages)
 
 '''
 @myapp_obj.route('/userhome')
@@ -105,6 +140,7 @@ def home():
 
 #delete account:
 @myapp_obj.route('/user/delete', methods=['POST'])
+@login_required
 def delete():
     user_id = request.form['user_id']
     user_to_delete = User.query.filter_by(id=user_id).first()
@@ -114,22 +150,10 @@ def delete():
         db.session.commit()
         flash('Account deleted successfully') 
 
-    return redirect('/home')
+    return redirect('/')
 
-#view profile
-@myapp_obj.route('/user/<username>/profile', methods=['POST', 'GET'])
-@login_required
-def view_profile(username):
-
-    user = User.query.filter_by(username=username).first()
-
-    if user is None:
-        flash('User not found.')
-        return redirect(url_for('home'))
-
-    return render_template('profile.html', user=user)
-
-@myapp_obj.route('/user/<username>/edit_profile', methods=['POST', 'GET'])
+'''
+@myapp_obj.route('/user/<username>/profile/edit', methods=['POST', 'GET'])
 @login_required
 def edit_profile(username):
     user = User.query.filter_by(username=username).first()
@@ -138,7 +162,8 @@ def edit_profile(username):
         flash('User not found.')
         return redirect(url_for('home'))
 
-    return render_template('edit_profile.html', user=user)
+    return render_template('edit.html', user=user)
+'''
 
 #Edit profile
 @myapp_obj.route('/user/<username>/edit_profile_handler', methods=['POST'])
