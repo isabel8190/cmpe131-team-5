@@ -11,8 +11,21 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(32), unique=True, nullable = False) #dont want username to be null, 32 characters max
     password = db.Column(db.String(32), nullable = False)
     email = db.Column(db.String(64), unique=True, nullable = False)
+    #bio = db.Column(db.String(250))
     messages = db.relationship('Message', backref='author', lazy = True)
     #posts = db.relationship('Post', backref = 'author', lazy = True)
+
+    '''
+    followers = db.Table('followers',
+    db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
+    db.Column('followed_id', db.Integer, db.ForeignKey('user.id')))
+
+    followed = db.relationship(
+        'User', secondary=followers,
+        primaryjoin=(followers.c.follower_id == id),
+        secondaryjoin=(followers.c.followed_id == id),
+        backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
+    '''
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
@@ -20,8 +33,22 @@ class User(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
+    def set_username(self, username):
+        self.username = username
+
+    '''
+    def follow(self, user):
+        if not self.is_following(user):
+            self.followed.append(user)
+
+    def unfollow(self, user):
+        if self.is_following(user):
+            self.followed.remove(user)
+    '''
+
     def __repr__(self):
         return f'<User {self.username}>'
+
 
 @login.user_loader
 def load_user(id):
@@ -37,7 +64,16 @@ class Message(db.Model):
 
     def __repr__(self):
         return 
+'''
+class Post(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key = True)
+    body = db.Column(db.String(140))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
+    def __repr__(self):
+        return '<Post {}>'.format(self.body)
+'''
 '''
 class Post(db.Model):
     tablename = 'posts'

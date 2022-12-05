@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block mycontent %}
+<center>
+    <h1>Edit Profile</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        
+        <p>{{form.picture.label}} <br> {{form.picture()}}</p>
+
+        <p>
+            Current Username: {{user.username}} <br>
+            {{ form.newUsername.label }}<br>
+            {{ form.newUsername(size=32) }}<br>
+            {% for error in form.newUsername.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.newPassword.label }}<br>
+            {{ form.newPassword(size=32) }}<br>
+        </p>
+
+        <p>
+            {{ form.confirmPassword.label }}<br>
+            {{ form.confirmPassword(size=32) }}<br>
+            {% for error in form.confirmPassword.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>{{form.submit.label}} <br> {{form.submit()}}</p>
+
+    </form>
+</center>
+{% endblock %}

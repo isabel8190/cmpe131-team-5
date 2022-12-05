@@ -69,7 +69,7 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
 
 - Team updates
   - Bhargavi Datye: Researched assigned functional requirements and how to connect the program to a database. 
-  - Isabel Luong: Added code templates from class sessions into git and will continue to work on assigned functional requirements
+  - Isabel Luong: Added code templates from class sessions into git and will continue to work on assigned functional requirements. Also researched how to work out program bugs and using the database.
   - Sherif Philips: Created a template .CSS and HTML. created a ganeral template for the code. Working on functional req.
   
 -Group progress
@@ -91,7 +91,7 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
   Group looked up how to connect the program to a database in order to continue working on the home page
   
   - Bhargavi Datye: Wrote html for a logout button, researched how to implment delete account, messages and profile.
-  - Isabel Luong: Added a navigation bar for user to navigate through the website. Figured out how to connect program to a database
+  - Isabel Luong: Added a navigation bar for user to navigate through the website. Figured out how to connect program to a database. Implemented working create account/ signup because the one we did in the team was broken. Connected all webpages. Will continue to work on functional requirements.
   - Sherif Philips: Researched models for POST, edit profile and follow/unfollow, and delete account
 
 - Pair Programming (90mins)

@@ -7,8 +7,7 @@
           {% if current_user.is_anonymous %}
           {% else %}
           <a href="{{ url_for('home', username=current_user.username) }}">Home</a>
-          <a href="{{ url_for('profile', username=current_user.username) }}">My Profile</a>
-          <a href="{{ url_for('delete') }}">Delete Account</a>
+          <a href="{{ url_for('profile', username=current_user.username) }}">My Profile</a> 
           <a href="{{ url_for('logout') }}">Logout</a>
           {% endif %}
     
@@ -30,14 +29,8 @@
 <style>
 
 div{
-  color: white;
-  background-color: #36454F;
-}
-
-a:link {
-  color: white;
-  background-color: #36454F;
-  text-decoration: none;
+  color: black;
+  background-color: #e8ddc8;
 }
 
 a:visited {
