@@ -112,6 +112,19 @@ def following(username):
 @login_required
 def message(username):
     return render_template('message.html', user=username)
+'''
+def send_message(recipient):
+    user = User.query.filter_by(username=recipient).first_or_404()
+    current_form = MessageForm()
+    if current_form.validate_on_submit():
+        msg = Message(author=current_user, recipient=user, body=form.message.data)
+        db.session.add(msg)
+        db.session.commit()
+        flash(_('Your message has been sent.'))
+        return redirect(url_for('/user/<username>/message'))
+    return render_template('send_message.html', title=_('Send Message'),
+                           form=form, recipient=recipient)
+'''
 
 #create an account - isabel
 @myapp_obj.route('/signup', methods = ['POST', 'GET'])
