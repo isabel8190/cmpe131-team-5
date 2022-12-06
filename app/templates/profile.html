@@ -34,7 +34,7 @@
 
     <p>
         {% if user == current_user %}
-        <button><a href="{{ url_for('delete') }}">Delete Account</a></button>
+        <button><a href="{{ url_for('delete', username=current_user.username) }}">Delete Account</a></button>
         {% endif %}
     </p>
 </center>
