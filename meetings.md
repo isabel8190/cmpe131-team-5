@@ -104,6 +104,23 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
   - Research how to post messages, how to implement "edit profile", and how to search for users
 
 
+### 2022-12-06 at 10:30 (10:30am-11:45am)
+- Attendance: Bhargavi Datye, Isabel Luong, Sherif Philips
+  
+- Team updates:
+  - Bhargavi Datye: Added code under routes.py and html for private messaging and uploading images. Added new file upload_image.html, edited messages.html. 
+  - Isabel Luong: Worked on edit user profile, made it so users can change their username and password, working on puploading a profile picture.
+  - Sherif Philips: Wrote code and html for functions.
+
+- Pair Programming (90mins)
+  - Group worked on html for sending messages
+  - Contacted TA for help with flask-migrate
+  - updated README to include introduction, ethical implications, and implementation
+  
+- For next meeting: 
+  - Figure out how to run flask-migrate
+
+
 ### 2022-12-06 at 10:30
 -Attendance: 
 
