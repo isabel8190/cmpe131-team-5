@@ -52,7 +52,7 @@ def delete(username):
     db.session.delete(user)
     db.session.commit()
     flash('Account deleted successfully')
-    return redirect('/')    #redirect to home
+    return redirect('/')    #redirect to login
 
 #user profile - isabel
 @myapp_obj.route('/user/<username>/profile/')
@@ -209,6 +209,7 @@ def edit_profile(username):
     return render_template('edit.html', user=user)
 '''
 
+'''
 #Edit profile
 @myapp_obj.route('/user/<username>/edit_profile_handler', methods=['POST'])
 @login_required
@@ -228,6 +229,7 @@ def edit_profile_handler():
     db.session.commit()
 
     return redirect('/user/' + user.username + '/profile')
+'''
 
 #follow or unfollow a user
 @myapp_obj.route('/user/<username>/follow', methods=['POST'])
