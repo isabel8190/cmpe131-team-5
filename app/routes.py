@@ -44,6 +44,13 @@ def logout():
     else:
         return redirect(url_for('login'))
 
+#delete confirmation - isabel
+@myapp_obj.route('/user/<username>/profile/delete', methods=['POST', 'GET'])
+@login_required
+def deleteConfirm(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    return render_template('delete.html', user=user)    #redirect to delete confirmation
+
 #delete account - isabel
 @myapp_obj.route('/user/<username>/delete', methods=['POST', 'GET'])
 @login_required
@@ -84,12 +91,17 @@ def edit(username):
             user.set_username(current_form.newUsername.data) 
             flash('Password changed!')
             db.session.commit()
+        '''
+        if len(current_form.newBio.data) != 0:
+            user.set_bio(current_form.newBio.data) 
+            flash('Bio changed!')
+            db.session.commit()
+        '''
         if len(current_form.newPassword.data) != 0:
             user.set_password(current_form.newPassword.data)
             flash('Username changed!')
             db.session.commit()
-        flash('Please keep your login information in a safe place!')
-        return redirect(url_for('login'))
+        return redirect(url_for('home'))
 
     return render_template('edit.html' ,user=user, form=current_form)
 
@@ -194,19 +206,6 @@ def home():
     current_user.username = User.query.filter_by(username=current_user.username).first()
     message = Message.query.filter_by(user_id=current_user.username.id).all()
     return render_template('user_home.html', titlePage = titlePage, message = message)
-'''
-
-'''
-@myapp_obj.route('/user/<username>/profile/edit', methods=['POST', 'GET'])
-@login_required
-def edit_profile(username):
-    user = User.query.filter_by(username=username).first()
-
-    if user is None:
-        flash('User not found.')
-        return redirect(url_for('home'))
-
-    return render_template('edit.html', user=user)
 '''
 
 '''

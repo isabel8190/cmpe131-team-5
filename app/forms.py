@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, FileField
-from wtforms.validators import DataRequired, EqualTo, ValidationError
+from wtforms.validators import DataRequired, EqualTo, ValidationError, Length
 
 from app.models import User
 
@@ -34,7 +34,7 @@ class EditProfileForm(FlaskForm):
     newUsername = StringField('New Username')
     newPassword = PasswordField('New Password')
     confirmPassword = PasswordField('Confirm Changes Using Password', validators=[DataRequired()])
-    #bio = TextAreaField('Bio', validators=[Length(min=0, max=250)]) #max bio length 250 char
+    #newBio = TextAreaField('Bio', validators=[Length(min=0, max=250)]) #max bio length 250 char
     submit = SubmitField('Confirm')
 
     def validate_newUsername(self, username):

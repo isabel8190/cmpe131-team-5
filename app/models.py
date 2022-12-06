@@ -45,6 +45,9 @@ class User(db.Model, UserMixin):
     def set_username(self, username):
         self.username = username
 
+    def set_bio(self, bio):
+        self.bio = bio
+
     '''
     def follow(self, user):
         if not self.is_following(user):
