@@ -8,7 +8,7 @@
 
 Ethical Implications
 
-As a software students, it is our responsibility to ensure that the social media application we are creating meets ethical standards, as well as professional standards. We must ensure that the application meets the highest ethical standards, and that it is designed in a way that minimizes any negative impacts it may have on global, economic, environmental, and societal contexts.
+As software students, it is our responsibility to ensure that the social media application we are creating meets ethical standards, as well as professional standards. We must ensure that the application meets the highest ethical standards, and that it is designed in a way that minimizes any negative impacts it may have on global, economic, environmental, and societal contexts.
 
 Ethically, we must ensure that the application is designed in a way that respects the privacy of its users. We must ensure that users have the ability to control their data and that any security measures are in place to protect their data from unauthorized access. We must also ensure that the application is designed in a way that is free of discrimination and bias, and that it respects the rights of its users.
 
