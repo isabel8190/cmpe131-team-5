@@ -6,8 +6,9 @@
 - Sherif Philips (@captainsphilips) sherif.philips@gmail.com
 
 ## Introduction
+Shine is a social media app where you can create an account, follow other users, create posts for your followers to see, and send messages.
 
-Ethical Implications
+## Ethical Implications
 
 As software students, it is our responsibility to ensure that the social media application we are creating meets ethical standards, as well as professional standards. We must ensure that the application meets the highest ethical standards, and that it is designed in a way that minimizes any negative impacts it may have on global, economic, environmental, and societal contexts.
 
@@ -18,9 +19,6 @@ Professionally, we must ensure that the application is designed in a way that is
 Additionally, we must ensure that the application is designed in a way that has minimal negative impacts on global, economic, environmental, and societal contexts. We must consider any potential unintended consequences that may arise from the application and take steps to prevent them. This may include ensuring that the application is designed in a way that minimizes its impact on the environment and that it adheres to international laws and regulations.
 
 Overall, it is our responsibility to ensure that the social media application we are creating is designed in a way that meets ethical and professional standards, and that has minimal negative impacts on global, economic, environmental, and societal contexts.
-
-## Introduction
-Shine is a social media app where you can create an account, follow other users, create posts for your followers to see, and send messages.
 
 ## Technologies
 - Python
