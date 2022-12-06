@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
 {% block mycontent %}
+
+<!--
 <h1>{{a}}</h1>
 <p>Hello {{name}} </p>
 
@@ -11,4 +13,17 @@
     <p>{{form.remember_me.label}} <br> {{form.remember_me()}}</p>
     <p>{{form.submit.label}} <br> {{form.submit()}}</p>
 </form>
+//-->
+
+<h1>{{user.username}}'s messages</h1>
+<p>
+    username: {{user.username}}
+    {% if user == current_user %}
+    <form action="/message" method="POST">
+    <label for="message"><h2>Send a message</h2><input type="text" name="message"></label>
+    <button>Send</button>
+    </form>
+    {% endif %}
+</p>
+
 {% endblock %}
