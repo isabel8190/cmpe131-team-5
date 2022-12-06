@@ -14,6 +14,15 @@ class User(db.Model, UserMixin):
     #bio = db.Column(db.String(250))
     #messages = db.relationship('Message', backref='author', lazy = True)
     #posts = db.relationship('Post', backref = 'author', lazy = True)
+    '''
+    messages_sent = db.relationship('Message',
+                                    foreign_keys='Message.sender_id',
+                                    backref='author', lazy='dynamic')
+    messages_received = db.relationship('Message',
+                                        foreign_keys='Message.recipient_id',
+                                        backref='recipient', lazy='dynamic')
+    last_message_read_time = db.Column(db.DateTime)
+    '''
 
     '''
     followers = db.Table('followers',
@@ -65,7 +74,7 @@ class Message(db.Model):
     def __repr__(self):
         return 
 
-class Private_Message(db.Model):
+'''class Private_Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     sender_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     recipient_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -73,7 +82,7 @@ class Private_Message(db.Model):
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
     def __repr__(self):
-        return '<Message {}>'.format(self.body)
+        return '<Message {}>'.format(self.body)'''
 
 '''
 class Post(db.Model, UserMixin):
