@@ -27,3 +27,27 @@
 </p>
 
 {% endblock %}
+
+
+{% extends "base.html" %}
+
+{% block mycontent %}
+
+<h1>{{user.username}}'s messages</h1>
+<p>
+    username: {{user.username}}
+    {% if user == current_user %}
+    <form action="/message" method="POST">
+    <label for="message"><h2>Send a message</h2><input type="text" name="message"></label>
+    <button>Send</button>
+    </form>
+    {% endif %}
+    {% if user != current_user %}
+    <form action="/send_private_message" method="POST">
+    <label for="message"><h2>Send a private message</h2><input type="text" name="message"></label>
+    <button>Send</button>
+    </form>
+    {% endif %}
+</p>
+
+{% endblock %}
