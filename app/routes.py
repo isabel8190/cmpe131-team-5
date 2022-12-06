@@ -143,7 +143,7 @@ def signup():
         return redirect(url_for('login'))
     return render_template('signup.html', form=current_form)
 
-#view user home page
+#view user home page - sherif
 @myapp_obj.route('/user/<username>/home', methods = ['POST', 'GET'])
 @login_required
 def home(username):
@@ -210,7 +210,7 @@ def edit_profile(username):
 '''
 
 '''
-#Edit profile
+#Edit profile - sherif
 @myapp_obj.route('/user/<username>/edit_profile_handler', methods=['POST'])
 @login_required
 def edit_profile_handler():
@@ -231,7 +231,7 @@ def edit_profile_handler():
     return redirect('/user/' + user.username + '/profile')
 '''
 
-#follow or unfollow a user
+#follow or unfollow a user - sherif
 @myapp_obj.route('/user/<username>/follow', methods=['POST'])
 @login_required
 def follow_handler():
