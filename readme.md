@@ -5,6 +5,7 @@
 - Isabel Luong (@isabel8190) isabel.luong@sjsu.edu
 - Sherif Philips (@captainsphilips) sherif.philips@gmail.com
 
+## Introduction
 
 Ethical Implications
 
@@ -18,13 +19,13 @@ Additionally, we must ensure that the application is designed in a way that has 
 
 Overall, it is our responsibility to ensure that the social media application we are creating is designed in a way that meets ethical and professional standards, and that has minimal negative impacts on global, economic, environmental, and societal contexts.
 
-##Introduction
+## Introduction
 Shine is a social media app where you can create an account, follow other users, create posts for your followers to see, and send messages.
 
-##Technologies
+## Technologies
 - Python
 - HTML
 
-##Launch
+## Launch
 To run this project please download all files (you can clone this git repository) and use the command
 python3 run.py
