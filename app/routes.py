@@ -154,7 +154,7 @@ def home(username):
 
 '''
 #upload images - bhargavi
-@app.route('/user/<username>/images', methods=['GET', 'POST']) #maybe switch home with a new tab (like /images or /uploads) if it doesn't work?
+@app.route('/user/<username>/home', methods=['GET', 'POST']) #maybe switch home with a new tab (like /images or /uploads) if it doesn't work?
 @login_required
 def upload_image():
     if request.method == "POST":
@@ -169,6 +169,23 @@ def upload_image():
             return render_template("upload_image.html", uploaded_image=filename)
     return render_template("upload_image.html") #if no image is selected it's redirect back to the same page
 '''
+
+'''
+#upload images - bhargavi
+@app.route('/user/<username>/home', methods=['GET', 'POST']) #maybe switch home with a new tab (like /images or /uploads) if it doesn't work?
+@login_required
+@app.route('/', methods=['POST'])
+def upload_file():
+    uploaded_file = request.files['file']
+    if uploaded_file.filename == '':
+    	flash('No file was selected')
+    else
+        uploaded_file.save(uploaded_file.filename)
+    return redirect(url_for('home.html'))
+    
+  #note: might need to add an "upload image" button to home for this one?
+'''
+
 
 '''
 @myapp_obj.route('/userhome')
