@@ -107,7 +107,7 @@ def following(username):
     
     return render_template('following.html', user=username)
 
-#private message
+#private message - bhargavi
 @myapp_obj.route('/user/<username>/message')
 @login_required
 def message(username):
@@ -151,6 +151,24 @@ def home(username):
     user = User.query.filter_by(username=username).first_or_404()
     #messages = Message.query.filter_by(user_id=user.id).all()
     return render_template('home.html', user=user, form = current_form) #, messages=messages)
+
+'''
+#upload images - bhargavi
+@app.route('/user/<username>/images', methods=['GET', 'POST']) #maybe switch home with a new tab (like /images or /uploads) if it doesn't work?
+@login_required
+def upload_image():
+    if request.method == "POST":
+        if file.filename == '':
+            flash('No file was selected')
+        if request.files:
+            image = request.files["image"]
+            flash('Image successfully Uploaded')
+            image.save(os.path.join(app.config["IMAGE_UPLOADS"], image.filename))
+            filename = os.path.join(app.config["IMAGE_UPLOADS"], image.filename)
+            print("stored as:" + filename)
+            return render_template("upload_image.html", uploaded_image=filename)
+    return render_template("upload_image.html") #if no image is selected it's redirect back to the same page
+'''
 
 '''
 @myapp_obj.route('/userhome')
