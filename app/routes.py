@@ -1,7 +1,7 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash, request, url_for
 from app.forms import LoginForm, SignupForm, PostForm, EditProfileForm
-from app.models import User, Message#, Post
+from app.models import User, Message #, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user, login_required, login_user, logout_user
 
@@ -43,6 +43,16 @@ def logout():
         return redirect(url_for('login'))
     else:
         return redirect(url_for('login'))
+
+#delete account - isabel
+@myapp_obj.route('/user/<username>/delete', methods=['POST', 'GET'])
+@login_required
+def delete(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    db.session.delete(user)
+    db.session.commit()
+    flash('Account deleted successfully')
+    return redirect('/')    #redirect to home
 
 #user profile - isabel
 @myapp_obj.route('/user/<username>/profile/')
@@ -88,20 +98,20 @@ def edit(username):
 @login_required
 def followers(username):
     
-    return render_template('followers.html')
+    return render_template('followers.html', user=username)
 
 #view following - isabel
 @myapp_obj.route('/user/<username>/following')
 @login_required
 def following(username):
     
-    return render_template('following.html')
+    return render_template('following.html', user=username)
 
-#private message - isabel
+#private message
 @myapp_obj.route('/user/<username>/message')
 @login_required
 def message(username):
-    return render_template('message.html')
+    return render_template('message.html', user=username)
 
 #create an account - isabel
 @myapp_obj.route('/signup', methods = ['POST', 'GET'])
@@ -137,20 +147,6 @@ def home():
     message = Message.query.filter_by(user_id=current_user.username.id).all()
     return render_template('user_home.html', titlePage = titlePage, message = message)
 '''
-
-#delete account:
-@myapp_obj.route('/user/delete', methods=['POST'])
-@login_required
-def delete():
-    user_id = request.form['user_id']
-    user_to_delete = User.query.filter_by(id=user_id).first()
-
-    if user_to_delete is not None:
-        db.session.delete(user_to_delete)
-        db.session.commit()
-        flash('Account deleted successfully') 
-
-    return redirect('/')
 
 '''
 @myapp_obj.route('/user/<username>/profile/edit', methods=['POST', 'GET'])
