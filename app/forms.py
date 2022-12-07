@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, FileField
 from wtforms.validators import DataRequired, EqualTo, ValidationError, Length
 
+from flask import flash
 from app.models import User
 
 #form for login
@@ -37,10 +38,12 @@ class EditProfileForm(FlaskForm):
     newBio = TextAreaField('Bio', validators=[Length(min=0, max=250)]) #max bio length 250 char
     submit = SubmitField('Confirm')
 
-    def validate_newUsername(self, username):
-        user = User.query.filter_by(username=username.data).first()
-        if user is not None and username is not None:
+    '''
+    def validate_newUsername(self, newUsername):
+        user = User.query.filter_by(username=newUsername.data).first_or_404()
+        if user is not None:
             raise ValidationError('Choose another username.')
+    '''
             
 class SearchForm(FlaskForm):
     search = StringField('Search For User', validators = [DataRequired()])
