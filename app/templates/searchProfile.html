@@ -18,12 +18,10 @@
     </p>
     
     <p>
-        following count: {{followingCount}}
         <button><a href="{{ url_for('follow', username=current_user.username) }}">Follow</a></button>
     </p>
 
     <p>
-        follower count: {{followersCount}}
         <button><a href="{{ url_for('unfollow', username=current_user.username) }}">Unfollow</a></button>
     </p>
 </center>
