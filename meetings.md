@@ -109,7 +109,7 @@ Meeting Schedule: Every Tuesday and Thursday during class time (10:30-11:45am)
   
 - Team updates:
   - Bhargavi Datye: Added code under routes.py and html for private messaging and uploading images. Added new file upload_image.html, edited messages.html. 
-  - Isabel Luong: Worked on edit user profile, made it so users can change their username and password, working on puploading a profile picture.
+  - Isabel Luong: Worked on edit user profile, made it so users can change their username and password, working on uploading a profile picture, worked a little on user profile. Figured out how to use flask-migrate, and almost done with search for user.
   - Sherif Philips: Wrote code and html for functions.
 
 - Pair Programming (90mins)

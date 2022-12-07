@@ -2,19 +2,19 @@
 
 {% block mycontent %}
 <center>
-    <h1>{{user.username}}'s Profile</h1>
+    <h1>{{username.username}}'s Profile</h1>
 
     <p>
         
     </p>
 
     <p>
-        username: {{user.username}}
+        username: {{username.username}}
         <button><a href="{{ url_for('message', username=current_user.username) }}">Message</a></button>
     </p>
 
     <p>
-        bio: {{user.bio}}
+        bio: {{username.bio}}
     </p>
     
     <p>

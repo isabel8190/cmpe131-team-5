@@ -150,11 +150,11 @@ def search(username):
     return render_template('search.html', user=username, form= current_form)
 
 #search profile - isabel
-@myapp_obj.route('/user/searchProfile', methods=['POST', 'GET'])
+@myapp_obj.route('/user/searchProfile/<username>', methods=['POST', 'GET'])
 @login_required
 def searchProfile(username):
     user = User.query.filter_by(username=username).first_or_404()
-    return render_template('searchProfile.html', user=user)
+    return render_template('searchProfile.html', username=user)
 
 #private message - bhargavi
 @myapp_obj.route('/user/<username>/message')
