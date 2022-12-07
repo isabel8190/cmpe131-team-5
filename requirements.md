@@ -2,16 +2,16 @@
 
 1. Login (Isabel) done
 2. Logout (Sherif) done
-3. Create a new account (Bhargavi) done
-4. Delete account (Bhargavi) done
+3. Create a new account (Isabel) done
+4. Delete account (Isabel) done
 5. View user home page (user can see messages of users they follow) (Bhargavi)
 6. Send public messages to followers (may include images) (Bhargavi)
-7. Send/receive private messages (Isabel)
-8. View followers (Isabel)
-9. Edit user's profile. (Sherif)
-10. View a user profile. (Isabel)
+7. Send/receive private messages 
+8. View followers
+9. Edit user's profile. (Isabel) done
+10. View a user profile. (Isabel) done
 11. Follow other users. (Sherif)
-12. Search for other users. (Sherif)
+12. Search for other users. (Isabel) done
 
 ## Non-functional Requirements
 

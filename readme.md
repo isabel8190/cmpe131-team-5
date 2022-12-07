@@ -27,3 +27,17 @@ Overall, it is our responsibility to ensure that the social media application we
 ## Launch
 To run this project please download all files (you can clone this git repository) and use the command
 python3 run.py
+
+## Implementation
+1. Login                                Completed by Isabel
+2. Logout                               Completed by Sherif
+3. Create a new account                 Completed by Isabel
+4. Delete account                       Completed by Isabel
+5. View user home page (user can see messages of users they follow) (Bhargavi)
+6. Send public messages to followers (may include images) (Bhargavi)
+7. Send/receive private messages 
+8. View followers
+9. Edit user's profile.                 Completed by Isabel
+10. View a user profile.                Completed by Isabel
+11. Follow other users. (Sherif)
+12. Search for other users.             Completed by Isabel
