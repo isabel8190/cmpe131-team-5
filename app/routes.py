@@ -73,11 +73,12 @@ def deleteConfirm(username):
 @myapp_obj.route('/user/<username>/delete', methods=['POST', 'GET'])
 @login_required
 def delete(username):
+    flash("here")
     user = User.query.filter_by(username=username).first()
     db.session.delete(user)
     db.session.commit()
     flash('Account deleted successfully')
-    return redirect('/')    #redirect to login
+    return redirect(url_for(login))    #redirect to login
 
 #user profile - isabel
 @myapp_obj.route('/user/<username>/profile/')
@@ -90,9 +91,8 @@ def profile(username):
 @myapp_obj.route('/user/<username>/profile/edit', methods=['POST', 'GET'])
 @login_required
 def edit(username):
-    user = User.query.filter_by(username=username).first_or_404()
+    user = User.query.filter_by(username=username).first()
     current_form = EditProfileForm()
-
     if current_form.validate_on_submit():
         # check user's password with what is saved on the database
         if not user.check_password(current_form.confirmPassword.data):
@@ -104,15 +104,20 @@ def edit(username):
 
         if len(current_form.newPassword.data) != 0:
             user.set_password(current_form.newPassword.data)
-            flash('Username changed!')
+            flash('Password changed!')
             db.session.commit()
         if len(current_form.newBio.data) != 0:
             user.set_bio(current_form.newBio.data) 
             flash('Bio changed!')
             db.session.commit()
         if len(current_form.newUsername.data) != 0:
+            name = User.query.filter_by(username=current_form.newUsername.data).first()
+            print(name)
+            if name is not None:
+                flash('Choose another username')
+                return redirect(url_for('edit', username=username))
             user.set_username(current_form.newUsername.data) 
-            flash('Password changed!')
+            flash('Username changed!')
             db.session.commit()
         return redirect(url_for('login'))
 
@@ -240,41 +245,6 @@ def home():
     current_user.username = User.query.filter_by(username=current_user.username).first()
     message = Message.query.filter_by(user_id=current_user.username.id).all()
     return render_template('user_home.html', titlePage = titlePage, message = message)
-'''
-
-'''
-@myapp_obj.route('/user/<username>/profile/edit', methods=['POST', 'GET'])
-@login_required
-def edit_profile(username):
-    user = User.query.filter_by(username=username).first()
-
-    if user is None:
-        flash('User not found.')
-        return redirect(url_for('home'))
-
-    return render_template('edit.html', user=user)
-'''
-
-'''
-#Edit profile
-@myapp_obj.route('/user/<username>/edit_profile_handler', methods=['POST'])
-@login_required
-def edit_profile_handler():
-    user_id = request.form['user_id']
-    display_name = request.form['display_name']
-    about_me = request.form['about_me']
-
-    user = User.query.filter_by(id=user_id).first()
-
-    if user is None:
-        flash('User not found.')
-        return redirect(url_for('home'))
-
-    user.display_name = display_name
-    user.about_me = about_me
-    db.session.commit()
-
-    return redirect('/user/' + user.username + '/profile')
 '''
 
 #follow or unfollow a user - sherif
