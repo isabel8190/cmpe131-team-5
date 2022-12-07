@@ -1,7 +1,7 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash, request, url_for
-from app.forms import LoginForm, SignupForm, PostForm, EditProfileForm
-from app.models import User, Message #, Post
+from app.forms import LoginForm, SignupForm, PostForm, EditProfileForm, SearchForm
+from app.models import User #, Message #, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user, login_required, login_user, logout_user
 
@@ -34,6 +34,24 @@ def login():
         return redirect(url_for('home', username = current_form.username.data))
     return render_template('login.html', form=current_form)
 
+#create an account - isabel
+@myapp_obj.route('/signup', methods = ['POST', 'GET'])
+def signup():
+    if current_user.is_authenticated:
+        return redirect(url_for('home', username = current_user.username))           #if user is logged in, go to homepage
+    current_form = SignupForm()
+
+    #On submission, checks if data is acccepted by all field validators
+    if current_form.validate_on_submit():
+        user = User(username=current_form.username.data)
+        user.set_password(current_form.password.data)
+        user.set_bio("")
+        db.session.add(user)
+        db.session.commit()
+        flash('Account creation successful!')
+        return redirect(url_for('login'))
+    return render_template('signup.html', form=current_form)
+
 #logout - sherif
 @myapp_obj.route('/logout')
 def logout():
@@ -43,6 +61,13 @@ def logout():
         return redirect(url_for('login'))
     else:
         return redirect(url_for('login'))
+
+#delete confirmation - isabel
+@myapp_obj.route('/user/<username>/delete', methods=['POST', 'GET'])
+@login_required
+def deleteConfirm(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    return render_template('delete', user=user)    #redirect to login
 
 #delete account - isabel
 @myapp_obj.route('/user/<username>/delete', methods=['POST', 'GET'])
@@ -84,11 +109,14 @@ def edit(username):
             user.set_username(current_form.newUsername.data) 
             flash('Password changed!')
             db.session.commit()
+        if len(current_form.newBio.data) != 0:
+            user.set_bio(current_form.newBio.data) 
+            flash('Bio changed!')
+            db.session.commit()
         if len(current_form.newPassword.data) != 0:
             user.set_password(current_form.newPassword.data)
             flash('Username changed!')
             db.session.commit()
-        flash('Please keep your login information in a safe place!')
         return redirect(url_for('login'))
 
     return render_template('edit.html' ,user=user, form=current_form)
@@ -106,6 +134,37 @@ def followers(username):
 def following(username):
     
     return render_template('following.html', user=username)
+
+#search user - isabel
+@myapp_obj.route('/user/<username>/search', methods=['POST', 'GET'])
+@login_required
+def search(username):
+    current_form = SearchForm()
+
+    #On submission, checks if data is acccepted by all field validators
+    if current_form.validate_on_submit():
+        if(current_form.search.data == current_user.username):
+            flash("You cannot search for yourself!")
+            return redirect(url_for('search', username = current_user.username))
+
+        user = User(username=current_form.search.data)
+        return redirect(url_for('searchResults', username = user))
+
+    return render_template('search.html', user=username, form= current_form)
+
+#search results - isabel
+@myapp_obj.route('/user/<username>/searchResults', methods=['POST', 'GET'])
+@login_required
+def searchResults(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    return render_template('searchResults.html', user=user)
+
+#search profile - isabel
+@myapp_obj.route('/user/<username>/searchProfile', methods=['POST', 'GET'])
+@login_required
+def searchProfile(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    return render_template('searchProfile.html', user=user)
 
 #private message - bhargavi
 @myapp_obj.route('/user/<username>/message')
@@ -126,22 +185,19 @@ def send_message(recipient):
                            form=form, recipient=recipient)
 '''
 
-#create an account - isabel
-@myapp_obj.route('/signup', methods = ['POST', 'GET'])
-def signup():
-    if current_user.is_authenticated:
-        return redirect(url_for('home', username = current_user.username))           #if user is logged in, go to homepage
-    current_form = SignupForm()
+#follow
+@myapp_obj.route('/user/<username>/searchProfile/follow', methods=['POST', 'GET'])
+@login_required
+def follow(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    return redirect('searchProfile.html', user=user)
 
-    #On submission, checks if data is acccepted by all field validators
-    if current_form.validate_on_submit():
-        user = User(username=current_form.username.data)
-        user.set_password(current_form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        flash('Account creation successful!')
-        return redirect(url_for('login'))
-    return render_template('signup.html', form=current_form)
+#unfollow
+@myapp_obj.route('/user/<username>/searchProfile/unfollow', methods=['POST', 'GET'])
+@login_required
+def unfollow(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    return redirect('searchProfile.html', user=user)
 
 #view user home page - sherif
 @myapp_obj.route('/user/<username>/home', methods = ['POST', 'GET'])

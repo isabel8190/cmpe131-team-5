@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block mycontent %}
+<center>
+    <h1>{{user.username}}'s Profile</h1>
+
+    <p>
+        
+    </p>
+
+    <p>
+        username: {{user.username}}
+        <button><a href="{{ url_for('message', username=current_user.username) }}">Message</a></button>
+    </p>
+
+    <p>
+        bio: {{user.bio}}
+    </p>
+    
+    <p>
+        following count: {{followingCount}}
+        <button><a href="{{ url_for('follow', username=current_user.username) }}">Follow</a></button>
+    </p>
+
+    <p>
+        follower count: {{followersCount}}
+        <button><a href="{{ url_for('unfollow', username=current_user.username) }}">Unfollow</a></button>
+    </p>
+</center>
+
+{% endblock %}

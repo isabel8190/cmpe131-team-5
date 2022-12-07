@@ -4,38 +4,31 @@
 <center>
     <h1>{{user.username}}'s Profile</h1>
 
-    
-
     <p>
-        username: {{user.username}}
-        {% if user == current_user %}
-        <button><a href="{{ url_for('edit', username=current_user.username) }}">Edit</a></button>
-        {% else %}
-        <button><a href="{{ url_for('message', username=current_user.username) }}">Message</a></button>
-        {% endif %}
+        
     </p>
 
     <p>
+        username: {{user.username}}
+        <button><a href="{{ url_for('edit', username=current_user.username) }}">Edit</a></button>
+    </p>
+
+    <p>
+        bio: {{user.bio}}
+    </p>
+    
+    <p>
         following count: {{user.following}}
-        {% if user == current_user %}
         <button><a href="{{ url_for('following', username=current_user.username) }}">View</a></button>
-        {% else %}
-        {% endif %}
     </p>
 
     <p>
         follower count: {{user.followers}}
-        {% if user == current_user %}
         <button><a href="{{ url_for('followers', username=current_user.username) }}">View</a></button>
-        {% else %}
-        <button><a href="{{ url_for('follow', username=current_user.username) }}">Follow</a></button>
-        {% endif %}
     </p>
 
     <p>
-        {% if user == current_user %}
         <button><a href="{{ url_for('deleteConfirm', username=current_user.username) }}">Delete Account</a></button>
-        {% endif %}
     </p>
 </center>
 

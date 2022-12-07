@@ -10,8 +10,8 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(32), unique=True, nullable = False) #dont want username to be null, 32 characters max
     password = db.Column(db.String(32), nullable = False)
-    email = db.Column(db.String(64), unique=True, nullable = False)
-    #bio = db.Column(db.String(250))
+    email = db.Column(db.String(64)) #, unique=True, nullable = False)
+    bio = db.Column(db.String(250))
     #messages = db.relationship('Message', backref='author', lazy = True)
     #posts = db.relationship('Post', backref = 'author', lazy = True)
     '''
@@ -48,6 +48,9 @@ class User(db.Model, UserMixin):
     def set_bio(self, bio):
         self.bio = bio
 
+    def set_email(self, email):
+        self.email = email
+
     '''
     def follow(self, user):
         if not self.is_following(user):
@@ -66,6 +69,7 @@ class User(db.Model, UserMixin):
 def load_user(id):
     return User.query.get(int(id))
 
+'''
 #messages table
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -76,6 +80,7 @@ class Message(db.Model):
 
     def __repr__(self):
         return 
+'''
 
 '''class Private_Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)

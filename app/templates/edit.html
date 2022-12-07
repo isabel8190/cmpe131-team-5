@@ -6,7 +6,7 @@
     <form action="" method="post">
         {{ form.hidden_tag() }}
         
-        <p>{{form.picture.label}} <br> {{form.picture()}}</p>
+        <!--<p>{{form.picture.label}} <br> {{form.picture()}}</p> -->
 
         <p>
             Current Username: {{user.username}} <br>
@@ -15,6 +15,11 @@
             {% for error in form.newUsername.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
+        </p>
+
+        <p>
+            {{ form.newBio.label }}<br>
+            {{ form.newBio(cols=50, rows=4) }}<br>
         </p>
 
         <p>

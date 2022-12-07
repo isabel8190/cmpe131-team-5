@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block mycontent %}
+<center>
+    <h1>Search Results</h1>
+    <p>
+        <a href="{{ url_for('searchProfile', name = name) }}">name = name</a>
+    </p>
+</center>
+{% endblock %}
