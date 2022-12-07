@@ -84,9 +84,6 @@ def delete(username):
 @login_required
 def profile(username):
     user = User.query.filter_by(username=username).first_or_404()
-
-    #FILl THIS OUT
-
     return render_template('profile.html', user=user)
 
 #edit profile - isabel
@@ -121,14 +118,14 @@ def edit(username):
 
     return render_template('edit.html' ,user=user, form=current_form)
 
-#view followers - isabel
+#view followers
 @myapp_obj.route('/user/<username>/followers')
 @login_required
 def followers(username):
     
     return render_template('followers.html', user=username)
 
-#view following - isabel
+#view following
 @myapp_obj.route('/user/<username>/following')
 @login_required
 def following(username):
@@ -148,19 +145,12 @@ def search(username):
             return redirect(url_for('search', username = current_user.username))
 
         user = User(username=current_form.search.data)
-        return redirect(url_for('searchResults', username = user))
+        return render_template(('searchResults.html'), form = current_form, username = user)
 
     return render_template('search.html', user=username, form= current_form)
 
-#search results - isabel
-@myapp_obj.route('/user/<username>/searchResults', methods=['POST', 'GET'])
-@login_required
-def searchResults(username):
-    user = User.query.filter_by(username=username).first_or_404()
-    return render_template('searchResults.html', user=user)
-
 #search profile - isabel
-@myapp_obj.route('/user/<username>/searchProfile', methods=['POST', 'GET'])
+@myapp_obj.route('/user/searchProfile', methods=['POST', 'GET'])
 @login_required
 def searchProfile(username):
     user = User.query.filter_by(username=username).first_or_404()

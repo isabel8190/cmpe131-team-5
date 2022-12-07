@@ -2,9 +2,9 @@
 
 {% block mycontent %}
 <center>
-    <h1>Search Results</h1>
+    <h2>You searched for user:</h2>
     <p>
-        <a href="{{ url_for('searchProfile', name = name) }}">name = name</a>
+        <a href="{{ url_for('searchProfile', username = username) }}">{{form.search.data}}</a>
     </p>
 </center>
 {% endblock %}
