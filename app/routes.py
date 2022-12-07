@@ -63,7 +63,7 @@ def logout():
         return redirect(url_for('login'))
 
 #delete confirmation - isabel
-@myapp_obj.route('/user/<username>/delete', methods=['POST', 'GET'])
+@myapp_obj.route('/user/<username>/deleteConfirm', methods=['POST', 'GET'])
 @login_required
 def deleteConfirm(username):
     user = User.query.filter_by(username=username).first()
@@ -73,12 +73,11 @@ def deleteConfirm(username):
 @myapp_obj.route('/user/<username>/delete', methods=['POST', 'GET'])
 @login_required
 def delete(username):
-    flash("here")
-    user = User.query.filter_by(username=username).first()
+    user = User.query.filter_by(username=username).first_or_404()
     db.session.delete(user)
     db.session.commit()
     flash('Account deleted successfully')
-    return redirect(url_for(login))    #redirect to login
+    return redirect(url_for('login'))    #redirect to login
 
 #user profile - isabel
 @myapp_obj.route('/user/<username>/profile/')
