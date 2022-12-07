@@ -4,5 +4,8 @@
 <h1>Follower List</h1>
 <p>You have {{num}} followers </p>
 
+{% for follower in followers %}
+    <p>{{ follower.username }}</p> <br>
+{% endfor %}
 
 {% endblock %}
