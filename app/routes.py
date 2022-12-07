@@ -66,14 +66,14 @@ def logout():
 @myapp_obj.route('/user/<username>/delete', methods=['POST', 'GET'])
 @login_required
 def deleteConfirm(username):
-    user = User.query.filter_by(username=username).first_or_404()
-    return render_template('delete', user=user)    #redirect to login
+    user = User.query.filter_by(username=username).first()
+    return render_template('delete.html', user=user)
 
 #delete account - isabel
 @myapp_obj.route('/user/<username>/delete', methods=['POST', 'GET'])
 @login_required
 def delete(username):
-    user = User.query.filter_by(username=username).first_or_404()
+    user = User.query.filter_by(username=username).first()
     db.session.delete(user)
     db.session.commit()
     flash('Account deleted successfully')
@@ -102,17 +102,17 @@ def edit(username):
 
         #current_user.picture = current_form.picture.data
 
-        if len(current_form.newUsername.data) != 0:
-            user.set_username(current_form.newUsername.data) 
-            flash('Password changed!')
+        if len(current_form.newPassword.data) != 0:
+            user.set_password(current_form.newPassword.data)
+            flash('Username changed!')
             db.session.commit()
         if len(current_form.newBio.data) != 0:
             user.set_bio(current_form.newBio.data) 
             flash('Bio changed!')
             db.session.commit()
-        if len(current_form.newPassword.data) != 0:
-            user.set_password(current_form.newPassword.data)
-            flash('Username changed!')
+        if len(current_form.newUsername.data) != 0:
+            user.set_username(current_form.newUsername.data) 
+            flash('Password changed!')
             db.session.commit()
         return redirect(url_for('login'))
 
@@ -144,8 +144,8 @@ def search(username):
             flash("You cannot search for yourself!")
             return redirect(url_for('search', username = current_user.username))
 
-        user = User(username=current_form.search.data)
-        return render_template(('searchResults.html'), form = current_form, username = user)
+        user = User.query.filter_by(username=current_form.search.data).first()
+        return render_template(('searchResults.html'), form = current_form, username = user.username)
 
     return render_template('search.html', user=username, form= current_form)
 
@@ -153,7 +153,7 @@ def search(username):
 @myapp_obj.route('/user/searchProfile/<username>', methods=['POST', 'GET'])
 @login_required
 def searchProfile(username):
-    user = User.query.filter_by(username=username).first_or_404()
+    user = User.query.filter_by(username=username).first()
     return render_template('searchProfile.html', username=user)
 
 #private message - bhargavi
