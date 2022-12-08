@@ -90,11 +90,12 @@ Home: You are automatically here when you first login. In a future update, you w
 Search: Allows you to search for other users and view their profile page. In a future update, you will be able to follow and follow the user, as well as send private messages to them!
 
 My Profile: Allows you to view your own profile! 
-    Edit: You can edit your own profile which consists of your username and bio, as well as your password! Please make sure to verify all changes using your current password! 
+
+Edit: You can edit your own profile which consists of your username and bio, as well as your password! Please make sure to verify all changes using your current password! 
+
+Delete Account: You can also delete your account here, if you wish to do so. :(
     
-    Delete Account: You can also delete your account here, if you wish to do so. :(
-    
-    In future updates, you can so view your follower and following count, as well as who exactly is following you and who you are following!
+In future updates, you can so view your follower and following count, as well as who exactly is following you and who you are following!
 
 Logout: Allows you to log out of your account. You can reaccess your account by logging in.
 
