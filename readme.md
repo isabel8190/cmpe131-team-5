@@ -9,12 +9,12 @@
 Shine is a social media app where you can create an account, follow other users, create posts for your followers to see, and send messages.
 
 ## Table of Contents
-* [Ethical Implications] (#ethical-implications)
-* [Technologies] (#technologies)
-* [Required Libraries] (#required-libraries)
-* [Launching the App] (#launching-the-app)
-* [Starting and Using the App] (#starting-and-using-the-app)
-* [Implementation Credits] (#implementation-credits)
+* [Ethical Implications] 
+* [Technologies] 
+* [Required Libraries] 
+* [Launching the App] 
+* [Starting and Using the App]
+* [Implementation Credits]
 
 ## Ethical Implications
 
