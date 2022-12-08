@@ -100,15 +100,15 @@ In future updates, you can so view your follower and following count, as well as
 Logout: Allows you to log out of your account. You can reaccess your account by logging in.
 
 ## Implementation Credits
-1. Login                                Completed by Isabel
-2. Logout                               Completed by Sherif
-3. Create a new account                 Completed by Isabel
-4. Delete account                       Completed by Isabel
+1. Login                                -Completed by Isabel
+2. Logout                               -Completed by Sherif
+3. Create a new account                 -Completed by Isabel
+4. Delete account                       -Completed by Isabel
 5. View user home page (user can see messages of users they follow)
 6. Send public messages to followers (may include images)
 7. Send/receive private messages 
 8. View followers
-9. Edit user's profile.                 Completed by Isabel
-10. View a user profile.                Completed by Isabel
-11. Follow other users. (Sherif)
-12. Search for other users.             Completed by Isabel
+9. Edit user's profile.                 -Completed by Isabel
+10. View a user profile.                -Completed by Isabel
+11. Follow other users. 
+12. Search for other users.             -Completed by Isabel
