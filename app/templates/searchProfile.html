@@ -5,7 +5,7 @@
     <h1>{{username.username}}'s Profile</h1>
 
     <p>
-        
+
     </p>
 
     <p>
@@ -16,14 +16,16 @@
     <p>
         bio: {{username.bio}}
     </p>
-    
-    <p>
-        <button><a href="{{ url_for('follow', username=current_user.username) }}">Follow</a></button>
-    </p>
 
+    {% if not current_user.is_following(username)%}
     <p>
-        <button><a href="{{ url_for('unfollow', username=current_user.username) }}">Unfollow</a></button>
+        <button><a href="{{ url_for('follow', username=username.username) }}">Follow</a></button>
     </p>
+    {% else %}
+    <p>
+        <button><a href="{{ url_for('unfollow', username=username.username) }}">Unfollow</a></button>
+    </p>
+    {% endif %}
 </center>
 
 {% endblock %}

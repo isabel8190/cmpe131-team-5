@@ -18,12 +18,12 @@
     </p>
     
     <p>
-        following count: {{user.following}}
+        following
         <button><a href="{{ url_for('following', username=current_user.username) }}">View</a></button>
     </p>
 
     <p>
-        follower count: {{user.followers}}
+        followers
         <button><a href="{{ url_for('followers', username=current_user.username) }}">View</a></button>
     </p>
 
