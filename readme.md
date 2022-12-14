@@ -95,7 +95,7 @@ Edit: You can edit your own profile which consists of your username and bio, as 
 
 Delete Account: You can also delete your account here, if you wish to do so. :(
     
-In future updates, you can so view your follower and following count, as well as who exactly is following you and who you are following!
+View Followers and Following: You can view the number of people you are following and the number of people who are following you! You can also see who exactly they are.
 
 Logout: Allows you to log out of your account. You can reaccess your account by logging in.
 
