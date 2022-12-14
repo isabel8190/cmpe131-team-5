@@ -6,8 +6,9 @@ from flask_login import UserMixin
 
 #from datetime import datetime
 
-#most of followers is referenced from 
+#most of followers work in model is referenced from 
 #https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-viii-followers
+#everything else is original work
 
 #table of followers
 followers = db.Table('followers',

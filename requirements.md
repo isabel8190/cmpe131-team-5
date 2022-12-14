@@ -7,10 +7,10 @@
 5. View user home page (user can see messages of users they follow) (Bhargavi)
 6. Send public messages to followers (may include images) (Bhargavi)
 7. Send/receive private messages (Sherif)
-8. View followers (Sherif)
+8. View followers (Isabel) done
 9. Edit user's profile. (Isabel) done
 10. View a user profile. (Isabel) done
-11. Follow other users. (Sherif)
+11. Follow other users. (Isabel) done
 12. Search for other users. (Isabel) done
 
 ## Non-functional Requirements

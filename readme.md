@@ -107,8 +107,8 @@ Logout: Allows you to log out of your account. You can reaccess your account by 
 5. View user home page (user can see messages of users they follow)
 6. Send public messages to followers (may include images)
 7. Send/receive private messages 
-8. View followers
+8. View followers                       -Completed by Isabel
 9. Edit user's profile.                 -Completed by Isabel
 10. View a user profile.                -Completed by Isabel
-11. Follow other users. 
+11. Follow other users.                 -Completed by Isabel
 12. Search for other users.             -Completed by Isabel
