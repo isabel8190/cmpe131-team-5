@@ -17,6 +17,16 @@
         bio: {{username.bio}}
     </p>
 
+    <p>
+        following
+        <button><a href="{{ url_for('following', username=username.username) }}">View</a></button>
+    </p>
+
+    <p>
+        followers
+        <button><a href="{{ url_for('followers', username=username.username) }}">View</a></button>
+    </p>
+
     {% if not current_user.is_following(username)%}
     <p>
         <button><a href="{{ url_for('follow', username=username.username) }}">Follow</a></button>
