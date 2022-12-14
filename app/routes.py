@@ -54,6 +54,7 @@ def signup():
 
 #logout - sherif
 @myapp_obj.route('/logout')
+@login_required
 def logout():
     if current_user.is_authenticated:
         logout_user()
@@ -122,19 +123,26 @@ def edit(username):
 
     return render_template('edit.html' ,user=user, form=current_form)
 
-#view followers
+#view followers - isabel
 @myapp_obj.route('/user/<username>/followers')
 @login_required
 def followers(username):
-    
-    return render_template('followers.html', user=username)
+    user = User.query.filter_by(username=username).first()
+    num = 0
+    for followers in user.followers:
+        num += 1
+    return render_template('followers.html', user=user, num = num)
 
-#view following
+#view following - isabel
 @myapp_obj.route('/user/<username>/following')
 @login_required
 def following(username):
-    
-    return render_template('following.html', user=username)
+    user = User.query.filter_by(username=username).first()
+    num = 0
+    for following in user.followed:
+        num += 1
+
+    return render_template('following.html', user=user, num = num)
 
 #search user - isabel
 @myapp_obj.route('/user/<username>/search', methods=['POST', 'GET'])
@@ -179,21 +187,36 @@ def send_message(recipient):
                            form=form, recipient=recipient)
 '''
 
-#follow
-@myapp_obj.route('/user/<username>/searchProfile/follow', methods=['POST', 'GET'])
+#follow - isabel
+@myapp_obj.route('/user/searchProfile/<username>/follow', methods=['POST', 'GET'])
 @login_required
 def follow(username):
-    user = User.query.filter_by(username=username).first_or_404()
-    return redirect('searchProfile.html', user=user)
+    user = User.query.filter_by(username=username).first()
+    #user does not exist, here bc some people might edit links
+    if user is None:
+        flash("User does not exist")
+        return redirect(url_for('search', username = current_user.username))
+    else:
+        current_user.follow(user)
+        db.session.commit()
+        return redirect(url_for('searchProfile',username = username))
 
-#unfollow
-@myapp_obj.route('/user/<username>/searchProfile/unfollow', methods=['POST', 'GET'])
+#unfollow - isabel
+@myapp_obj.route('/user/searchProfile/<username>/unfollow', methods=['POST', 'GET'])
 @login_required
 def unfollow(username):
-    user = User.query.filter_by(username=username).first_or_404()
-    return redirect('searchProfile.html', user=user)
+    user = User.query.filter_by(username=username).first()
 
-#view user home page - sherif
+    #user does not exist, here bc some people might edit links
+    if user is None:
+        flash("User does not exist")
+        return redirect(url_for('search', username = current_user.username))
+    else:
+        current_user.unfollow(user)
+        db.session.commit()
+        return redirect(url_for('searchProfile',username = username))
+
+#view user home page
 @myapp_obj.route('/user/<username>/home', methods = ['POST', 'GET'])
 @login_required
 def home(username):
@@ -245,28 +268,6 @@ def home():
     message = Message.query.filter_by(user_id=current_user.username.id).all()
     return render_template('user_home.html', titlePage = titlePage, message = message)
 '''
-
-#follow or unfollow a user - sherif
-@myapp_obj.route('/user/<username>/follow', methods=['POST'])
-@login_required
-def follow_handler():
-    user_id = request.form['user_id']
-    user_to_follow = User.query.filter_by(id=user_id).first()
-
-    if user_to_follow is None:
-        flash('User not found.')
-        return redirect(url_for('home'))
-
-    if user_to_follow in current_user.following:
-        current_user.following.remove(user_to_follow)
-        flash('You stopped following ' + user_to_follow.username + '.')
-    else:
-        current_user.following.append(user_to_follow)
-        flash('You are now following ' + user_to_follow.username + '.')
-
-    db.session.commit()
-    return redirect('/user/' + user_to_follow.username + '/profile')
-
 
 #Python function to check browser type - sherif
 @myapp_obj.route('/check_browser', methods=['POST', 'GET'])

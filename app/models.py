@@ -6,6 +6,14 @@ from flask_login import UserMixin
 
 #from datetime import datetime
 
+#most of followers is referenced from 
+#https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-viii-followers
+
+#table of followers
+followers = db.Table('followers',
+            db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
+            db.Column('followed_id', db.Integer, db.ForeignKey('user.id')))
+
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(32), unique=True, nullable = False) #dont want username to be null, 32 characters max
@@ -24,17 +32,26 @@ class User(db.Model, UserMixin):
     last_message_read_time = db.Column(db.DateTime)
     '''
 
-    '''
-    followers = db.Table('followers',
-    db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
-    db.Column('followed_id', db.Integer, db.ForeignKey('user.id')))
-
+    #setting followed and user's relationship
     followed = db.relationship(
         'User', secondary=followers,
         primaryjoin=(followers.c.follower_id == id),
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
-    '''
+
+    #follow
+    def follow(self, user):
+        if not self.is_following(user):
+            self.followed.append(user)
+
+    #unfollow
+    def unfollow(self, user):
+        if self.is_following(user):
+            self.followed.remove(user)
+
+    #
+    def is_following(self, user):
+        return self.followed.filter(followers.c.followed_id == user.id).count() > 0
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
@@ -50,16 +67,6 @@ class User(db.Model, UserMixin):
 
     def set_email(self, email):
         self.email = email
-
-    '''
-    def follow(self, user):
-        if not self.is_following(user):
-            self.followed.append(user)
-
-    def unfollow(self, user):
-        if self.is_following(user):
-            self.followed.remove(user)
-    '''
 
     def __repr__(self):
         return f'<User {self.username}>'

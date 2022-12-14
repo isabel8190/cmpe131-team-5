@@ -4,8 +4,10 @@
 <h1>Follower List</h1>
 <p>You have {{num}} followers </p>
 
-{% for follower in followers %}
-    <p>{{ follower.username }}</p> <br>
+<ul>
+{% for follower in user.followers %}
+    <li>{{ follower.username }}</a></li>
 {% endfor %}
+</ul>
 
 {% endblock %}
